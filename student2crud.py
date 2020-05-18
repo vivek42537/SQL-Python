@@ -11,22 +11,28 @@ df.columns = df.columns.str.strip()
 print (df.columns)
 
 
-mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "password",
-    database = "testdb"
-)
+# mydb = mysql.connector.connect(
+#     host = "localhost",
+#     user = "root",
+#     passwd = "password",
+#     database = "test2"
+# )
 
+mydb = mysql.connector.connect(
+    host = input("host: "),
+    user = input("user: "),
+    passwd = input("password: "),
+    database = input("database: ")
+)
 print(mydb)
 
 mycursor = mydb.cursor()
 
 
-#mycursor.execute('CREATE TABLE people_info (Name nvarchar(50), Country nvarchar(50), Age int)')
+# mycursor.execute('CREATE TABLE people_info (Name nvarchar(50), Country nvarchar(50), Age int)')
 
 for row in df.itertuples():
-    mycursor.execute("INSERT INTO people_info (Name, Country, Age) VALUES (%s,%s,%s)",
+    mycursor.execute("INSERT INTO people_info (Name, Country, Age) VALUES (%s,%s,%d)",
         (row.Name, 
         row.Country,
         row.Age))

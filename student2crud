@@ -14,7 +14,7 @@ print (df.columns)
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    passwd = "password",
+    passwd = "Bdyhbyp0@s",
     database = "testdb"
 )
 
