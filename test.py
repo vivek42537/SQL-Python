@@ -3,10 +3,10 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    passwd = "Bdyhbyp0@s",
+    passwd = "password",
     database = "testdb"
 )
-
+print('helllooooo')
 print(mydb)
 
 mycursor = mydb.cursor()
@@ -25,13 +25,13 @@ students = [("Vivek" , 20), ("jacob" , 33), ("sam" , 90), ("bob" , 29)]
 # mycursor.executemany(sqlFormula, students)
 
 # mydb.commit() #this command makes it show in database
-
-# mycursor.execute("SELECT age FROM students")
-# #myresult = mycursor.fetchall() #gets specific data you want can use 'fetchone' if you want just a single entry
+nam = input("Name: ")
+mycursor.execute("SELECT * FROM students WHERE name = '%s'",(nam))
+myresult = mycursor.fetchall() #gets specific data you want can use 'fetchone' if you want just a single entry
 
 # myresult = mycursor.fetchone()
-# for row in myresult:
-#     print(row)
+for row in myresult:
+    print(row)
 
 #sql = "SELECT * FROM students WHERE name LIKE '%a%'"
 
@@ -47,8 +47,18 @@ students = [("Vivek" , 20), ("jacob" , 33), ("sam" , 90), ("bob" , 29)]
 
 # for result in myresult:
 #         print(result)
+# sqlFormula = "INSERT INTO students (Name, Age) VALUES(%s,%s)"
+# values = ("pedro", 76)
+# mycursor.execute(sqlFormula, values)
+# mydb.commit()
 
+# sql = "DELETE FROM students WHERE name = 'zeebo'"
+# mycursor.execute(sql)
+# mydb.commit()
 
-sql = "DELETE FROM students WHERE name = 'Vivek'"
-mycursor.execute(sql)
-mydb.commit()
+# nam = input("Name: ")
+# num = input("Age: ")
+#     #sqlFormula = "INSERT INTO people_info (Name, Country, Age) VALUES(%s,%s,%s)"
+# values = [(nam, num)]
+# mycursor.execute("INSERT INTO students (Name, Age) VALUES(%s,%s)",(nam, num))
+# mydb.commit()
