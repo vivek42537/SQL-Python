@@ -29,13 +29,49 @@ print(mydb)
 mycursor = mydb.cursor()
 
 
-# mycursor.execute('CREATE TABLE people_info (Name nvarchar(50), Country nvarchar(50), Age int)')
+#mycursor.execute('CREATE TABLE people_info (Name nvarchar(50), Country nvarchar(50), Age int)')
 
-for row in df.itertuples():
-    mycursor.execute("INSERT INTO people_info (Name, Country, Age) VALUES (%s,%s,%d)",
-        (row.Name, 
-        row.Country,
-        row.Age))
+# for row in df.itertuples():
+#     mycursor.execute("INSERT INTO people_info (Name, Country, Age) VALUES (%s,%s,%s)",
+#         (row.Name, 
+#         row.Country,
+#         row.Age))
 
 
-mydb.commit()
+# mydb.commit()
+operation = ""
+while (operation != 'done'):
+    operation = input("Press 1, 2, 3, or 4 for corresponding CRUD operation: ")
+
+    if (operation == '1'): #CREATE -insert row
+        nam = input("Name: ")
+        place = input("Country: ")
+        num = input("Age: ")
+        #sqlFormula = "INSERT INTO people_info (Name, Country, Age) VALUES(%s,%s,%s)"
+        values = [(nam, place, num)]
+        mycursor.execute("INSERT INTO people_info (Name, Country, Age) VALUES(%s,%s,%s)",(nam, place, num))
+        mydb.commit()
+
+    elif (operation == '2'): #READ -fetch data
+        nam = input("Name: ")
+        sql = "SELECT * FROM people_info WHERE Name = '{0}'"
+        query = sql.format(str(nam))
+        mycursor.execute(query)
+        myresult = mycursor.fetchall() #gets specific data you want can use 'fetchone' if you want just a single entry
+        print("sugoi")
+        for row in myresult:
+            print(row)
+
+    elif (operation == '3'): #UPDATE - replace data
+        nam = input("Name: ")
+        age = input("Age: ")
+        #place = input("Country:")
+        mycursor.execute("UPDATE people_info SET Age = %s WHERE Name = %s",(age, nam))
+        mydb.commit()
+
+    elif (operation == '4'): #DELETE - delete data
+        nam = input("Name: ")
+        sql = "DELETE FROM people_info WHERE Name = '{0}'"
+        query = sql.format(str(nam))
+        mycursor.execute(query)
+        mydb.commit()
