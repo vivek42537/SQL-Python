@@ -41,7 +41,7 @@ mycursor = mydb.cursor()
 # mydb.commit()
 operation = ""
 while (operation != 'done'):
-    operation = input("Press 1, 2, 3, or 4 for corresponding CRUD operation: ")
+    operation = input("Press 1, 2, 3, or 4 for corresponding CRUD operation, OR press 5 to export to excel file: ")
 
     if (operation == '1'): #CREATE -insert row
         nam = input("Name: ")
@@ -75,3 +75,7 @@ while (operation != 'done'):
         query = sql.format(str(nam))
         mycursor.execute(query)
         mydb.commit()
+
+    elif (operation == '5'): #EXPORT to excel file
+        fileName = input("File name: ")
+        pd.read_sql('SELECT * FROM people_info',mydb).to_excel(fileName)

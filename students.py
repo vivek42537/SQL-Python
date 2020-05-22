@@ -28,12 +28,11 @@ mydb = mysql.connector.connect(
 print(mydb)
 
 mycursor = mydb.cursor()
-#mycursor.execute("ALTER TABLE people ADD test_date VARCHAR(100) NOT NULL")
+#mycursor.execute("ALTER TABLE people ADD id MEDIUMINT primary key NOT NULL AUTO_INCREMENT")
 # mycursor.execute("""INSERT into people (test_date) VALUES ('%s')""",(timestamp))
 # print('TIME:', timestamp)
    
-
-
+#pd.read_sql('SELECT * FROM people',mydb).to_excel('foo.xlsx')
 #mycursor.execute('CREATE TABLE people (Name nvarchar(50), Country nvarchar(50), Age int)')
 
 # for row in df.itertuples():
@@ -44,7 +43,6 @@ mycursor = mydb.cursor()
 
 
 # mydb.commit()
-
 # mycursor.execute('CREATE TABLE people2 (Name nvarchar(50), Country nvarchar(50), Age int, updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(), created_at TIMESTAMP NOT NULL DEFAULT NOW())')
 
 # for row in df.itertuples():
@@ -55,10 +53,10 @@ mycursor = mydb.cursor()
 
 #mycursor.execute("SELECT * FROM people WHERE Name = 'Aria'")
 #mycursor.execute("ALTER TABLE people DROP test_date")
-#mydb.commit()
+mydb.commit()
 operation = ""
 while(operation != 'done'):
-    operation = input("Press 1, 2, 3, or 4 for correspongind CRUD operation: ")
+    operation = input("Press 1, 2, 3, or 4 for correspongind CRUD operation, OR press 5 to export to excel file: ")
     if (operation == '1'): #CREATE -insert row
         nam = input("Name: ")
         place = input("Country: ")
@@ -92,6 +90,9 @@ while(operation != 'done'):
         mycursor.execute(query)
         mydb.commit()
     
+    elif (operation == '5'): #EXPORT to excel file
+        fileName = input("File name: ")
+        pd.read_sql('SELECT * FROM people',mydb).to_excel(fileName)
 
 # sqlFormula = "INSERT INTO people_info (Name, Country, Age) VALUES(%s,%s,%s)"
 # values = ("zeebo", "poland", 98)
