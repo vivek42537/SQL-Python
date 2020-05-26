@@ -1,4 +1,6 @@
 import pandas as pd
+from pandas import ExcelWriter
+from openpyxl import load_workbook
 import mysql.connector
 import csv
 import time
@@ -29,6 +31,7 @@ print(mydb)
 
 mycursor = mydb.cursor()
 #mycursor.execute("ALTER TABLE people ADD id MEDIUMINT primary key NOT NULL AUTO_INCREMENT")
+# mycursor.execute("ALTER TABLE people ADD Created DATETIME2(3) CONSTRAINT DF_YourTable_Created DEFAULT (SYSDATETIME())")
 # mycursor.execute("""INSERT into people (test_date) VALUES ('%s')""",(timestamp))
 # print('TIME:', timestamp)
    
@@ -53,6 +56,13 @@ mycursor = mydb.cursor()
 
 #mycursor.execute("SELECT * FROM people WHERE Name = 'Aria'")
 #mycursor.execute("ALTER TABLE people DROP test_date")
+book = load_workbook('foo.xlsx')
+writer = pd.ExcelWriter('foo.xlsx', engine='openpyxl')
+writer.book = book
+writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
+
+pd.read_sql('SELECT * FROM people',mydb).to_excel(writer, sheet_name = 'RawData')
+writer.save()
 mydb.commit()
 operation = ""
 while(operation != 'done'):
@@ -92,7 +102,13 @@ while(operation != 'done'):
     
     elif (operation == '5'): #EXPORT to excel file
         fileName = input("File name: ")
-        pd.read_sql('SELECT * FROM people',mydb).to_excel(fileName)
+        sheet = input("Sheet name: ")
+        book = load_workbook(fileName)
+        writer = pd.ExcelWriter(fileName, engine='openpyxl')
+        writer.book = book
+        writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
+        pd.read_sql('SELECT * FROM people',mydb).to_excel(writer, sheet_name = sheet)
+        writer.save()
 
 # sqlFormula = "INSERT INTO people_info (Name, Country, Age) VALUES(%s,%s,%s)"
 # values = ("zeebo", "poland", 98)

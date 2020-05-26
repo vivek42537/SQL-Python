@@ -1,4 +1,6 @@
 import pandas as pd
+from pandas import ExcelWriter
+from openpyxl import load_workbook
 import mysql.connector
 import csv
 
@@ -78,4 +80,10 @@ while (operation != 'done'):
 
     elif (operation == '5'): #EXPORT to excel file
         fileName = input("File name: ")
-        pd.read_sql('SELECT * FROM people_info',mydb).to_excel(fileName)
+        sheet = input("Sheet name: ")
+        book = load_workbook(fileName)
+        writer = pd.ExcelWriter(fileName, engine='openpyxl')
+        writer.book = book
+        writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
+        pd.read_sql('SELECT * FROM people_info',mydb).to_excel(writer, sheet_name = sheet)
+        writer.save()
