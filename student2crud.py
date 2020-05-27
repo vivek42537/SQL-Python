@@ -17,19 +17,20 @@ df.columns = df.columns.str.strip()
 print (df.columns)
 
 
-mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "password",
-    database = "test2"
-)
-
 # mydb = mysql.connector.connect(
-#     host = input("host: "),
-#     user = input("user: "),
-#     passwd = input("password: "),
-#     database = input("database: ")
+#     host = "localhost",
+#     user = "root",
+#     passwd = "password",
+#     database = "test2"
 # )
+userName = input("user: ")
+mydb = mysql.connector.connect(
+    host = input("host: "),
+    #user = input("user: ")
+    user = userName,
+    passwd = input("password: "),
+    database = input("database: ")
+)
 print(mydb)
 
 mycursor = mydb.cursor()
@@ -43,7 +44,7 @@ mycursor = mydb.cursor()
 #         row.Country,
 #         row.Age))
 
-# mycursor.execute("ALTER TABLE people_info ADD COLUMN Created DATETIME")
+# mycursor.execute("ALTER TABLE people_info ADD COLUMN User nvarchar(50)")
 # mydb.commit()
 operation = ""
 while (operation != 'done'):
@@ -57,7 +58,7 @@ while (operation != 'done'):
         values = [(nam, place, num)]
         ts = time.time()
         timestamp = (datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'),)
-        mycursor.execute("INSERT INTO people_info (Name, Country, Age, Created) VALUES(%s,%s,%s,%s)",(nam, place, int(num),timestamp[0]))
+        mycursor.execute("INSERT INTO people_info (Name, Country, Age, Created, User) VALUES(%s,%s,%s,%s,%s)",(nam, place, int(num),timestamp[0],userName))
         mydb.commit()
 
     elif (operation == '2'): #READ -fetch data
@@ -78,6 +79,7 @@ while (operation != 'done'):
         timestamp = (datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'),)
         mycursor.execute("UPDATE people_info SET Age = %s WHERE Name = %s",(age, nam))
         mycursor.execute("UPDATE people_info SET Created = %s WHERE Name = %s",(timestamp[0], nam))
+        mycursor.execute("UPDATE people_info SET User = %s WHERE Name = %s",(userName, nam))
         mydb.commit()
 
     elif (operation == '4'): #DELETE - delete data
