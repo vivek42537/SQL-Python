@@ -3,11 +3,14 @@ from pandas import ExcelWriter
 from openpyxl import load_workbook
 import mysql.connector
 import csv
+from datetime import datetime
+
+
 import time
 import datetime
 
 ts = time.time()
-timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+timestamp = (datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'),)
 
 
 
@@ -31,9 +34,13 @@ print(mydb)
 
 mycursor = mydb.cursor()
 #mycursor.execute("ALTER TABLE people ADD id MEDIUMINT primary key NOT NULL AUTO_INCREMENT")
-# mycursor.execute("ALTER TABLE people ADD Created DATETIME2(3) CONSTRAINT DF_YourTable_Created DEFAULT (SYSDATETIME())")
-# mycursor.execute("""INSERT into people (test_date) VALUES ('%s')""",(timestamp))
-# print('TIME:', timestamp)
+#now = datetime.now()
+#formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+#formatted_date = now.strftime('%d/%m/%Y %H:%i:%s')
+#mycursor.execute("ALTER TABLE people ADD Created DATETIME")
+#mycursor.execute("""INSERT into people (Created) VALUES (STR_TO_DATE(formatted_date, '%Y-%m-%d %H:%M:%S'))""")
+#mycursor.execute("INSERT INTO people (Created) VALUES (%s)", (timestamp))
+#print('TIME:', formatted_date)
    
 #pd.read_sql('SELECT * FROM people',mydb).to_excel('foo.xlsx')
 #mycursor.execute('CREATE TABLE people (Name nvarchar(50), Country nvarchar(50), Age int)')
@@ -45,7 +52,7 @@ mycursor = mydb.cursor()
 #         row.Age))
 
 
-# mydb.commit()
+#mydb.commit()
 # mycursor.execute('CREATE TABLE people2 (Name nvarchar(50), Country nvarchar(50), Age int, updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(), created_at TIMESTAMP NOT NULL DEFAULT NOW())')
 
 # for row in df.itertuples():
@@ -73,7 +80,8 @@ while(operation != 'done'):
         num = input("Age: ")
         #sqlFormula = "INSERT INTO people_info (Name, Country, Age) VALUES(%s,%s,%s)"
         values = [(nam, place, num)]
-        mycursor.execute("INSERT INTO people (Name, Country, Age) VALUES(%s,%s,%s)",(nam, place, int(num)))
+        mycursor.execute("INSERT INTO people (Name, Country, Age, Created) VALUES(%s,%s,%s,%s)",(nam, place, int(num),timestamp[0]))
+        
         mydb.commit()
 
     elif (operation == '2'): #READ -fetch data
@@ -91,6 +99,7 @@ while(operation != 'done'):
         age = input("Age: ")
         #place = input("Country:")
         mycursor.execute("UPDATE people SET Age = %s WHERE Name = %s",(age, nam))
+        mycursor.execute("UPDATE people SET Created = %s WHERE Name = %s",(timestamp[0], nam))
         mydb.commit()
 
     elif (operation == '4'): #DELETE - delete data

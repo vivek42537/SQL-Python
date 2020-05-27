@@ -1,4 +1,5 @@
 import mysql.connector
+from datetime import datetime
 
 mydb = mysql.connector.connect(
     host = "localhost",
@@ -30,8 +31,16 @@ mycursor.execute("SELECT * FROM students WHERE name = '%s'",(nam))
 myresult = mycursor.fetchall() #gets specific data you want can use 'fetchone' if you want just a single entry
 
 # myresult = mycursor.fetchone()
-for row in myresult:
-    print(row)
+# for row in myresult:
+#     print(row)
+
+now = datetime.now()
+id = 1
+formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+# Assuming you have a cursor named cursor you want to execute this query on:
+#mycursor.execute('insert into students(id, date_created) values(%s, %s)', (id, formatted_date))
+mycursor.execute("ALTER TABLE student ADD time MEDIUMINT primary key NOT NULL AUTO_INCREMENT")
+mydb.commit
 
 #sql = "SELECT * FROM students WHERE name LIKE '%a%'"
 
