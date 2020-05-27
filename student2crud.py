@@ -55,6 +55,8 @@ while (operation != 'done'):
         num = input("Age: ")
         #sqlFormula = "INSERT INTO people_info (Name, Country, Age) VALUES(%s,%s,%s)"
         values = [(nam, place, num)]
+        ts = time.time()
+        timestamp = (datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'),)
         mycursor.execute("INSERT INTO people_info (Name, Country, Age, Created) VALUES(%s,%s,%s,%s)",(nam, place, int(num),timestamp[0]))
         mydb.commit()
 
@@ -72,6 +74,8 @@ while (operation != 'done'):
         nam = input("Name: ")
         age = input("Age: ")
         #place = input("Country:")
+        ts = time.time()
+        timestamp = (datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'),)
         mycursor.execute("UPDATE people_info SET Age = %s WHERE Name = %s",(age, nam))
         mycursor.execute("UPDATE people_info SET Created = %s WHERE Name = %s",(timestamp[0], nam))
         mydb.commit()
