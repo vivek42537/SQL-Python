@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas import DataFrame
 from pandas import ExcelWriter
 from openpyxl import load_workbook
 import mysql.connector
@@ -33,32 +34,53 @@ mycursor = mydb.cursor()
 # mycursor.execute('CREATE TABLE people14 (Number nvarchar(50), Summary LONGTEXT, `Configuration_item` nvarchar(50), Created nvarchar(50), Company nvarchar(50), `Assignment_group` nvarchar(50), `Reassignment_count` nvarchar(50), Priority nvarchar(50), Status nvarchar(50), State nvarchar(50), `Assigned_to` nvarchar(50), Caller nvarchar(50), Updated nvarchar(50), Category nvarchar(50), `Category_u_category` nvarchar(50), `Resolve_time` nvarchar(50), `Resolved_By` nvarchar(50), `Resolved_at` nvarchar(50), `Resolved_by2` nvarchar(50), `Created_by` nvarchar(50), `Created_date` nvarchar(50), Location nvarchar(50))')
 # #df.to_sql('rawData', mydb, if_exists='replace', index = False)
 # mydb.commit()
+mycursor.execute("SELECT * FROM people14")
+myresult = mycursor.fetchall()
+#myresult2 = mycursor.keys()
+df = DataFrame(myresult, columns=['Number', 'Summary', 'Configuration_item', 'Created', 'Company', 'Assignment_group', 'Reassignment_count', 'Priority', 'Status', 'State', 'Assigned_to', 'Caller', 'Updated', 'Category', 'Category_u_category', 'Resolve_time', 'Resolved_By', 'Resolved_at', 'Resolved_by2', 'Created_by', 'Created_date', 'Location'])
+#df.columns = myresult2
+#print (df)
+
+def POD (row):
+    if row['Assignment_group'] == 'Dedicated Ops US Only – Compute' or row['Assignment_group'] == 'Sweep - Dedicated Ops_Non-Managed' or row['Assignment_group'] == 'Dedicated Ops US Only – Security' or row['Assignment_group'] == 'Dedicated Ops US Only – Network' or row['Assignment_group'] == 'Sweep - Dedicated Ops_All' :
+        return 'Dedicated POD'
+    
+    elif row['Assignment_group'] == 'Sweep - FTS POD_Non-Managed' or row['Assignment_group'] == 'FTS POD – Network' or row['Assignment_group'] == 'FTS POD – Compute' or row['Assignment_group'] == 'Sweep - FTS POD_All' or row['Assignment_group'] == 'FTS POD – Security' :
+        return 'FTS POD'
+
+    elif row['Assignment_group'] == 'Sweep - Shared POD_Non-Managed' or row['Assignment_group'] == 'Shared POD – Network' or row['Assignment_group'] == 'Shared POD – Compute' or row['Assignment_group'] == 'Shared POD – Storage' or row['Assignment_group'] == 'Shared POD – Transport' :
+        return 'Shared POD'
+
+
+print(df.apply (lambda row: POD(row), axis=1))
+# df['Cool?'] = df.apply (lambda row: coolGuy(row), axis=1)
+# print(df)
 
 # df.to_sql('people13', con=engine)
-for row in df.itertuples():
-    mycursor.execute("INSERT INTO people14 (Number, Summary, Configuration_item, Created, Company, Assignment_group, Reassignment_count, Priority, Status, State, Assigned_to, Caller, Updated, Category, Category_u_category, Resolve_time, Resolved_By, Resolved_at, Resolved_by2, Created_by, Created_date, Location) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-        (row.Number, 
-        row.Summary, 
-        row.Configuration_item,
-        row.Created, 
-        row.Company, 
-        row.Assignment_group, 
-        row.Reassignment_count, 
-        row.Priority, 
-        row.Status, 
-        row.State, 
-        row.Assigned_to, 
-        row.Caller, 
-        row.Updated, 
-        row.Category, 
-        row.Category_u_category,
-        row.Resolve_time, 
-        row.Resolved_By, 
-        row.Resolved_at, 
-        row.Resolved_by2, 
-        row.Created_by, 
-        row.Created_date, 
-        row.Location))
+# for row in df.itertuples():
+#     mycursor.execute("INSERT INTO people14 (Number, Summary, Configuration_item, Created, Company, Assignment_group, Reassignment_count, Priority, Status, State, Assigned_to, Caller, Updated, Category, Category_u_category, Resolve_time, Resolved_By, Resolved_at, Resolved_by2, Created_by, Created_date, Location) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+#         (row.Number, 
+#         row.Summary, 
+#         row.Configuration_item,
+#         row.Created, 
+#         row.Company, 
+#         row.Assignment_group, 
+#         row.Reassignment_count, 
+#         row.Priority, 
+#         row.Status, 
+#         row.State, 
+#         row.Assigned_to, 
+#         row.Caller, 
+#         row.Updated, 
+#         row.Category, 
+#         row.Category_u_category,
+#         row.Resolve_time, 
+#         row.Resolved_By, 
+#         row.Resolved_at, 
+#         row.Resolved_by2, 
+#         row.Created_by, 
+#         row.Created_date, 
+#         row.Location))
 #df.to_sql('people13', con=engine)
 mydb.commit()
 

@@ -1,5 +1,6 @@
 import pandas as pd
 from pandas import ExcelWriter
+from pandas import DataFrame
 from openpyxl import load_workbook
 import mysql.connector
 import csv
@@ -17,21 +18,21 @@ df.columns = df.columns.str.strip()
 print (df.columns)
 
 
-# mydb = mysql.connector.connect(
-#     host = "localhost",
-#     user = "root",
-#     passwd = "password",
-#     database = "test2"
-# )
-userName = input("user: ")
 mydb = mysql.connector.connect(
-    host = input("host: "),
-    #user = input("user: ")
-    user = userName,
-    passwd = input("password: "),
-    database = input("database: ")
+    host = "localhost",
+    user = "root",
+    passwd = "password",
+    database = "test2"
 )
-print(mydb)
+# userName = input("user: ")
+# mydb = mysql.connector.connect(
+#     host = input("host: "),
+#     #user = input("user: ")
+#     user = userName,
+#     passwd = input("password: "),
+#     database = input("database: ")
+# )
+# print(mydb)
 
 mycursor = mydb.cursor()
 
@@ -44,8 +45,28 @@ mycursor = mydb.cursor()
 #         row.Country,
 #         row.Age))
 
-# mycursor.execute("ALTER TABLE people_info ADD COLUMN User nvarchar(50)")
-# mydb.commit()
+#mycursor.execute("ALTER TABLE people_info ADD COLUMN User nvarchar(50)")
+
+# print (df)
+mycursor.execute("SELECT * FROM people_info")
+myresult = mycursor.fetchall()
+#myresult2 = mycursor.keys()
+df = DataFrame(myresult, columns=['Name','Country','Age','Created','User'])
+#df.columns = myresult2
+#print (df)
+
+def coolGuy (row):
+    if row['Name'] == 'Bill' or row['Name'] == 'Vivek' :
+        return 'Best'
+    elif row['Name'] == 'Maria' :
+        return 'Loser'
+        
+
+#print(df.apply (lambda row: coolGuy(row), axis=1))
+df['Cool?'] = df.apply (lambda row: coolGuy(row), axis=1)
+print(df)
+
+mydb.commit()
 operation = ""
 while (operation != 'done'):
     operation = input("Press 1, 2, 3, or 4 for corresponding CRUD operation, OR press 5 to export to excel file: ")
