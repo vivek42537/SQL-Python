@@ -7,21 +7,22 @@ import csv
 # import sqlalchemy
 # from sqlalchemy import create_engine
 # engine = create_engine('mysql+pymysql://root:password@localhost:3306/test2')
-
-df = pd.read_excel (r'Book3.xlsx')
+#fileName = input("File Name: ")
+#df = pd.read_excel (r'Book3.xlsx')
+df = pd.read_excel (r'RawData2.xlsx')
 df = df.where((pd.notnull(df)), None)
 df['Created'] = df['Created'].dt.strftime('%Y-%m-%d %H:%M:%S')
 df['Updated'] = df['Updated'].dt.strftime('%Y-%m-%d %H:%M:%S')
 df['Resolved_at'] = df['Resolved_at'].dt.strftime('%Y-%m-%d %H:%M:%S')
 df['Reassignment_count'] = df['Reassignment_count'].apply(str)
 # df['Resolve_time'] = df['Resolve_time'].apply(str)
-print (df.dtypes)
+#print (df.dtypes)
 # df['Book3'] = pd.to_datetime(df['Created'],unit='ms')
 # df.to_excel('new_Book3.xlsx', index=False)
 #print (df)
 
 df.columns = df.columns.str.strip()
-print (df.columns)
+# print (df.columns)
 
 mydb = mysql.connector.connect(
     host = "localhost",
@@ -31,10 +32,11 @@ mydb = mysql.connector.connect(
 )
 # print (mydb)
 mycursor = mydb.cursor()
-# mycursor.execute('CREATE TABLE people14 (Number nvarchar(50), Summary LONGTEXT, `Configuration_item` nvarchar(50), Created nvarchar(50), Company nvarchar(50), `Assignment_group` nvarchar(50), `Reassignment_count` nvarchar(50), Priority nvarchar(50), Status nvarchar(50), State nvarchar(50), `Assigned_to` nvarchar(50), Caller nvarchar(50), Updated nvarchar(50), Category nvarchar(50), `Category_u_category` nvarchar(50), `Resolve_time` nvarchar(50), `Resolved_By` nvarchar(50), `Resolved_at` nvarchar(50), `Resolved_by2` nvarchar(50), `Created_by` nvarchar(50), `Created_date` nvarchar(50), Location nvarchar(50))')
-# #df.to_sql('rawData', mydb, if_exists='replace', index = False)
+# mycursor.execute('CREATE TABLE RawPeople (Number nvarchar(50), Summary LONGTEXT, `Configuration_item` LONGTEXT, Created nvarchar(50), Company LONGTEXT, `Assignment_group` nvarchar(50), `Reassignment_count` nvarchar(50), Priority nvarchar(50), Status nvarchar(50), State nvarchar(50), `Assigned_to` nvarchar(50), Caller nvarchar(50), Updated nvarchar(50), Category nvarchar(50), `Category_u_category` nvarchar(50), `Resolve_time` nvarchar(50), `Resolved_By` nvarchar(50), `Resolved_at` nvarchar(50), `Resolved_by2` nvarchar(50), `Created_by` nvarchar(50), `Created_date` nvarchar(50), Location nvarchar(50))')
+# # #df.to_sql('rawData', mydb, if_exists='replace', index = False)
 # mydb.commit()
-mycursor.execute("SELECT * FROM people14")
+
+mycursor.execute("SELECT * FROM RawPeople")
 myresult = mycursor.fetchall()
 #myresult2 = mycursor.keys()
 df = DataFrame(myresult, columns=['Number', 'Summary', 'Configuration_item', 'Created', 'Company', 'Assignment_group', 'Reassignment_count', 'Priority', 'Status', 'State', 'Assigned_to', 'Caller', 'Updated', 'Category', 'Category_u_category', 'Resolve_time', 'Resolved_By', 'Resolved_at', 'Resolved_by2', 'Created_by', 'Created_date', 'Location'])
@@ -57,16 +59,16 @@ df['POD'] = df.apply (lambda row: POD(row), axis=1)
 #print(df)
 
 def AlertCat (row):
-    if 'crlps' in row['Configuration_item'] or 'phlps' in row['Configuration_item'] or 'rchps' in row['Configuration_item'] or 'cpedellps' in row['Configuration_item'] :
-        return 'Ciena Carrier Ethernet'
-    
-    elif 'Node Down' in row['Summary'] or 'Node or Connection down' in row['Summary'] :
+    if (row['Configuration_item'] is not None) and ('crlps' in row['Configuration_item'] or 'phlps' in row['Configuration_item'] or 'rchps' in row['Configuration_item'] or 'cpedellps' in row['Configuration_item']) :
+            return 'Ciena Carrier Ethernet'
+
+    elif 'Node Down' in row['Summary'] or 'Node or Connection Down' in row['Summary'] :
         return 'Node Down'
 
     elif 'Link down' in row['Summary'] or 'Link Flap' in row['Summary'] :
         return 'Link Down/Link Flapping'
 
-    elif 'Server Reboot' in row['Summary'] :
+    elif 'server reboot' in row['Summary'] :
         return 'Server Reboot'
     
     elif 'System Reboot' in row['Summary'] :
@@ -93,13 +95,13 @@ def AlertCat (row):
     elif 'Menzies island group connection issues' in row['Summary'] :
         return 'Menzies island group connection issues'
     
-    elif (row['Category_u_category'] is not None) and ('security' in row['Category_u_category']) :
+    elif (row['Category_u_category'] is not None) and ('Security' in row['Category_u_category']) :
         return 'Security Alert'
 
     elif (row['Assignment_group'] is not None) and ('Backup' in row['Assignment_group']) :
         return 'Backup Alert'
     
-    elif (row['Category_u_category'] is not None) and ('storage' in row['Category_u_category']) and ('backup' in row['Summary']) :
+    elif (row['Category_u_category'] is not None) and ('Storage' in row['Category_u_category']) and ('backup' in row['Summary']) :
         return 'Backup Alert'
 
     elif (row['Assignment_group'] is not None) and 'televault' in row['Assignment_group'] :
@@ -108,7 +110,7 @@ def AlertCat (row):
     elif (row['Category_u_category'] is not None) and 'storage' in row['Category_u_category'] :
         return 'Storage Alert'
     
-    elif 'trap rate' in row['Summary'] :
+    elif 'Trap rate' in row['Summary'] :
         return 'Trap Storm'
 
     elif 'BGP' in row['Summary'] :
@@ -120,17 +122,17 @@ def AlertCat (row):
     elif 'acih' in row['Summary'] :
         return 'ACI'
     
-    elif 'DCO' in row['Configuration_item']:
+    elif (row['Configuration_item'] is not None) and 'DCO' in row['Configuration_item']:
         return 'DCO'
     
-    elif 'IPDU' in row['Configuration_item']:
+    elif (row['Configuration_item'] is not None) and 'IPDU' in row['Configuration_item']:
         return 'IPDU'
     
     elif ('smti' in row['Summary'])  or ('datacenter' in row['Summary']) or ('vsphere' in row['Summary']):
         return 'Vcenter/CO'
     
-    elif ('esx' in  row['Configuration_item']) or ('prx' in  row['Configuration_item']) :
-        return 'Vcenter/CO'
+    elif (row['Configuration_item'] is not None) and (('esx' in  row['Configuration_item']) or ('prx' in  row['Configuration_item'])) :
+            return 'Vcenter/CO'
     
     elif 'ospf' in row['Summary'] :
         return 'OSPF Alert'
@@ -138,43 +140,43 @@ def AlertCat (row):
     elif 'KEEP ALIVE' in row['Summary'] :
         return 'KEEP ALIVE'
 
-    elif ('metric' in row['Summary']):
-        if ('database' in row['Summary']):
+    elif ('Metric' in row['Summary']):
+        if ('Database' in row['Summary']):
             return 'Sitescope Database'
         else :
             return 'Sitescope Others'
     
-    elif ('good' in row['Summary']):
-        if ('database' in row['Summary']):
+    elif ('Good' in row['Summary']):
+        if ('Database' in row['Summary']):
             return 'Sitescope Database'
         else :
             return 'Sitescope Others'
     
-    elif ('monitor' in row['Summary']):
-        if ('database' in row['Summary']):
+    elif ('Monitor' in row['Summary']):
+        if ('Database' in row['Summary']):
             return 'Sitescope Database'
         else :
             return 'Sitescope Others'
 
-    elif 'r2c' in row['Configuration_item']:
+    elif (row['Configuration_item'] is not None) and 'r2c' in row['Configuration_item']:
         return 'R2C SR'
     
-    elif '*r2c*srm' in row['Configuration_item']:
+    elif (row['Configuration_item'] is not None) and '*r2c*srm' in row['Configuration_item']:
         return 'R2C SRM'
     
-    elif (row['Assignment_group'] is not None) and 'transport' in row['Assignment_group'] :
-        return 'Ciena Alert-CHECK FOR MORE'
+    elif (row['Assignment_group'] is not None) and 'Transport' in row['Assignment_group'] :
+        return 'Ciena Alert'
     
     elif ('ucs' in row['Summary']) or ('cloud platform' in row['Company']) :
         return 'UCS ALERT'
     
-    elif ('ucs' in row['Configuration_item']) :
+    elif (row['Configuration_item'] is not None) and ('ucs' in row['Configuration_item']) :
         return 'transport'
 
     elif ('Remote site' in row['Summary']) :
         return 'Remote Site Unreachable'
     
-    elif ('lb-' in row['Configuration_item']) :
+    elif (row['Configuration_item'] is not None) and ('lb-' in row['Configuration_item']) :
         return 'LB Alert'
     
     elif ('service' in row['Summary']) :
@@ -183,7 +185,7 @@ def AlertCat (row):
     elif ('process' in row['Summary']) :
         return 'Process Down'
 
-    elif ('nsx' in row['Configuration_item']) :
+    elif (row['Configuration_item'] is not None) and ('nsx' in row['Configuration_item']) :
         return 'NSX Alert'
     
     elif ('MAX0902' in row['Summary']) :
@@ -220,13 +222,13 @@ def AlertCat (row):
         return 'ACI'
 
 
-#print(df.apply (lambda row: AlertCat(row), axis=1))
-df['ALERT_CATEGORY'] = df.apply (lambda row: AlertCat(row), axis=1)
-print(df)
+print(df.apply (lambda row: AlertCat(row), axis=1))
+# df['ALERT_CATEGORY'] = df.apply (lambda row: AlertCat(row), axis=1)
+# print(df)
 
 # df.to_sql('people13', con=engine)
 # for row in df.itertuples():
-#     mycursor.execute("INSERT INTO people14 (Number, Summary, Configuration_item, Created, Company, Assignment_group, Reassignment_count, Priority, Status, State, Assigned_to, Caller, Updated, Category, Category_u_category, Resolve_time, Resolved_By, Resolved_at, Resolved_by2, Created_by, Created_date, Location) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+#     mycursor.execute("INSERT INTO RawPeople (Number, Summary, Configuration_item, Created, Company, Assignment_group, Reassignment_count, Priority, Status, State, Assigned_to, Caller, Updated, Category, Category_u_category, Resolve_time, Resolved_By, Resolved_at, Resolved_by2, Created_by, Created_date, Location) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
 #         (row.Number, 
 #         row.Summary, 
 #         row.Configuration_item,
