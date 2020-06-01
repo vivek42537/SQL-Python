@@ -52,9 +52,177 @@ def POD (row):
         return 'Shared POD'
 
 
-print(df.apply (lambda row: POD(row), axis=1))
-# df['Cool?'] = df.apply (lambda row: coolGuy(row), axis=1)
-# print(df)
+#print(df.apply (lambda row: POD(row), axis=1))
+df['POD'] = df.apply (lambda row: POD(row), axis=1)
+#print(df)
+
+def AlertCat (row):
+    if 'crlps' in row['Configuration_item'] or 'phlps' in row['Configuration_item'] or 'rchps' in row['Configuration_item'] or 'cpedellps' in row['Configuration_item'] :
+        return 'Ciena Carrier Ethernet'
+    
+    elif 'Node Down' in row['Summary'] or 'Node or Connection down' in row['Summary'] :
+        return 'Node Down'
+
+    elif 'Link down' in row['Summary'] or 'Link Flap' in row['Summary'] :
+        return 'Link Down/Link Flapping'
+
+    elif 'Server Reboot' in row['Summary'] :
+        return 'Server Reboot'
+    
+    elif 'System Reboot' in row['Summary'] :
+        return 'System Reboot'
+
+    elif 'Agent Health Problem' in row['Summary'] :
+        return 'Agent Health Problem'
+
+    elif 'Agent Restart' in row['Summary'] :
+        return 'Agent Restart'
+    
+    elif 'cpu uti' in row['Summary'] :
+        return 'CPU Utilization'
+    
+    elif 'Memory uti' in row['Summary'] :
+        return 'Memory Utilization'
+
+    elif 'SWAP uti' in row['Summary'] :
+        return 'SWAP Utilization'
+
+    elif 'filesystem' in row['Summary'] :
+        return 'Filesystem Utilization'
+    
+    elif 'Menzies island group connection issues' in row['Summary'] :
+        return 'Menzies island group connection issues'
+    
+    elif (row['Category_u_category'] is not None) and ('security' in row['Category_u_category']) :
+        return 'Security Alert'
+
+    elif (row['Assignment_group'] is not None) and ('Backup' in row['Assignment_group']) :
+        return 'Backup Alert'
+    
+    elif (row['Category_u_category'] is not None) and ('storage' in row['Category_u_category']) and ('backup' in row['Summary']) :
+        return 'Backup Alert'
+
+    elif (row['Assignment_group'] is not None) and 'televault' in row['Assignment_group'] :
+        return 'Televault Alert'
+
+    elif (row['Category_u_category'] is not None) and 'storage' in row['Category_u_category'] :
+        return 'Storage Alert'
+    
+    elif 'trap rate' in row['Summary'] :
+        return 'Trap Storm'
+
+    elif 'BGP' in row['Summary'] :
+        return 'BGP'
+
+    elif 'syslog' in row['Summary'] :
+        return 'Syslog Message'
+
+    elif 'acih' in row['Summary'] :
+        return 'ACI'
+    
+    elif 'DCO' in row['Configuration_item']:
+        return 'DCO'
+    
+    elif 'IPDU' in row['Configuration_item']:
+        return 'IPDU'
+    
+    elif ('smti' in row['Summary'])  or ('datacenter' in row['Summary']) or ('vsphere' in row['Summary']):
+        return 'Vcenter/CO'
+    
+    elif ('esx' in  row['Configuration_item']) or ('prx' in  row['Configuration_item']) :
+        return 'Vcenter/CO'
+    
+    elif 'ospf' in row['Summary'] :
+        return 'OSPF Alert'
+    
+    elif 'KEEP ALIVE' in row['Summary'] :
+        return 'KEEP ALIVE'
+
+    elif ('metric' in row['Summary']):
+        if ('database' in row['Summary']):
+            return 'Sitescope Database'
+        else :
+            return 'Sitescope Others'
+    
+    elif ('good' in row['Summary']):
+        if ('database' in row['Summary']):
+            return 'Sitescope Database'
+        else :
+            return 'Sitescope Others'
+    
+    elif ('monitor' in row['Summary']):
+        if ('database' in row['Summary']):
+            return 'Sitescope Database'
+        else :
+            return 'Sitescope Others'
+
+    elif 'r2c' in row['Configuration_item']:
+        return 'R2C SR'
+    
+    elif '*r2c*srm' in row['Configuration_item']:
+        return 'R2C SRM'
+    
+    elif (row['Assignment_group'] is not None) and 'transport' in row['Assignment_group'] :
+        return 'Ciena Alert-CHECK FOR MORE'
+    
+    elif ('ucs' in row['Summary']) or ('cloud platform' in row['Company']) :
+        return 'UCS ALERT'
+    
+    elif ('ucs' in row['Configuration_item']) :
+        return 'transport'
+
+    elif ('Remote site' in row['Summary']) :
+        return 'Remote Site Unreachable'
+    
+    elif ('lb-' in row['Configuration_item']) :
+        return 'LB Alert'
+    
+    elif ('service' in row['Summary']) :
+        return 'Service Down'
+    
+    elif ('process' in row['Summary']) :
+        return 'Process Down'
+
+    elif ('nsx' in row['Configuration_item']) :
+        return 'NSX Alert'
+    
+    elif ('MAX0902' in row['Summary']) :
+        return 'AS/400'
+    
+    elif ('Chassis down' in row['Summary']) :
+        return 'Chassis down'
+    
+    elif ('Event Storm' in row['Summary']) :
+        return 'Event Storm'
+    
+    elif ('FRU' in row['Summary']) :
+        return 'FRU Alert'
+    
+    elif ('Forwarder' in row['Summary']) :
+        return 'Forwarder Alert'
+    
+    elif ('Symmetrix' in row['Summary']) :
+        return 'Symmetrix Alert'
+    
+    elif ('TVault' in row['Summary']) :
+        return 'TVault Backup Job Alert'
+    
+    elif ('QA Probe' in row['Summary']) or ('ICMP Jitter' in row['Summary']) :
+        return 'ICMP Jitter'
+    
+    elif (row['POD'] is not None) and ('storage' in row['POD']) and (row['POD'] == 'Shared Pod') :
+        return 'Storage Alert'
+    
+    elif (row['Assignment_group'] is not None) and 'GCSM-RS-CR-OPS-SUPPORT' in row['Assignment_group'] :
+        return 'R2C SR'
+    
+    elif ('Multiple events received for tenant' in row['Summary']) :
+        return 'ACI'
+
+
+#print(df.apply (lambda row: AlertCat(row), axis=1))
+df['ALERT_CATEGORY'] = df.apply (lambda row: AlertCat(row), axis=1)
+print(df)
 
 # df.to_sql('people13', con=engine)
 # for row in df.itertuples():

@@ -24,7 +24,7 @@ mydb = mysql.connector.connect(
     passwd = "password",
     database = "test2"
 )
-# userName = input("user: ")
+userName = input("user: ")
 # mydb = mysql.connector.connect(
 #     host = input("host: "),
 #     #user = input("user: ")
@@ -56,7 +56,7 @@ df = DataFrame(myresult, columns=['Name','Country','Age','Created','User'])
 #print (df)
 
 def coolGuy (row):
-    if row['Name'] == 'Bill' or row['Name'] == 'Vivek' :
+    if row['Name'] == 'Bill' or ('Viv' in row['Name'] and 'China' in row['Country']):
         return 'Best'
     elif row['Name'] == 'Maria' :
         return 'Loser'
