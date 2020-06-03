@@ -5,6 +5,7 @@ DatabaseInfo:
   database: testdb
 
 Numbers:
-  - 3
-  - 5
-  - 1
+  three: tres
+  five: cinco
+  one: uno
+  Goal: ronaldo

@@ -3,22 +3,26 @@ from datetime import datetime
 import yaml
 
 with open('test1.yaml', 'r') as yam:
-    doc = yaml.load(yam)
+    doc = yaml.safe_load(yam)
 
 hostInfo = doc["DatabaseInfo"]["host"]
 userInfo = doc["DatabaseInfo"]["user"]
 passwdInfo = doc["DatabaseInfo"]["passwd"]
 databaseInfo = doc["DatabaseInfo"]["database"]
 
+#print(doc["Numbers"])
 Numbers = doc["Numbers"]
 #print(Numbers[0])
 # if Numbers[0] + Numbers[1] + Numbers[2] == 9 :
 #     print('BOOYAH')
-x= 0
-while Numbers[x] != 1 :
-    x = x + 1
-    print(x)
-
+# for nums in doc["Numbers"] :
+#     print (nums[1])
+# x= 0
+# while Numbers[x] != 1 :
+#     x = x + 1
+#     print(x)
+for value in doc["Numbers"].values() :
+    print (value)
 mydb = mysql.connector.connect(
     host = hostInfo,
     user = userInfo,
