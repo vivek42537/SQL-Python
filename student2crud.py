@@ -6,16 +6,21 @@ import mysql.connector
 import csv
 import time
 import datetime
+import logging 
+
+logging.basicConfig(filename = 'one.log', level = logging.DEBUG, format = '%(levelname)s:%(name)s:%(message)s')
+
 
 ts = time.time()
 timestamp = (datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'),)
 df = pd.read_csv (r'students.csv')
-print (df)
+
+logging.info(df)
 # df = df.rename(columns={'Name ': 'Name'})
 # df = df.rename(columns={'Country ': 'Country'})
 # df = df.rename(columns={'Age ': 'Age'})
 df.columns = df.columns.str.strip()
-print (df.columns)
+logging.info(df.columns)
 
 
 mydb = mysql.connector.connect(

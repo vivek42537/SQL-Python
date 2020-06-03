@@ -1,0 +1,10 @@
+DatabaseInfo:
+  host: localhost
+  user: root
+  passwd: password
+  database: testdb
+
+Numbers:
+  - 3
+  - 5
+  - 1

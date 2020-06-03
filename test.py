@@ -1,13 +1,36 @@
 import mysql.connector
 from datetime import datetime
+import yaml
+
+with open('test1.yaml', 'r') as yam:
+    doc = yaml.load(yam)
+
+hostInfo = doc["DatabaseInfo"]["host"]
+userInfo = doc["DatabaseInfo"]["user"]
+passwdInfo = doc["DatabaseInfo"]["passwd"]
+databaseInfo = doc["DatabaseInfo"]["database"]
+
+Numbers = doc["Numbers"]
+#print(Numbers[0])
+# if Numbers[0] + Numbers[1] + Numbers[2] == 9 :
+#     print('BOOYAH')
+x= 0
+while Numbers[x] != 1 :
+    x = x + 1
+    print(x)
 
 mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "password",
-    database = "testdb"
+    host = hostInfo,
+    user = userInfo,
+    passwd = passwdInfo,
+    database = databaseInfo
 )
-print('helllooooo')
+# mydb = mysql.connector.connect(
+#     host = "localhost",
+#     user = "root",
+#     passwd = "password",
+#     database = "testdb"
+# )
 print(mydb)
 
 mycursor = mydb.cursor()
@@ -18,8 +41,8 @@ mycursor = mydb.cursor()
 # for tb in mycursor:
 #     print(tb)
 
-sqlFormula = "INSERT INTO students (name, age) VALUES(%s, %s)"
-students = [("Vivek" , 20), ("jacob" , 33), ("sam" , 90), ("bob" , 29)]
+# sqlFormula = "INSERT INTO students (name, age) VALUES(%s, %s)"
+# students = [("Vivek" , 20), ("jacob" , 33), ("sam" , 90), ("bob" , 29)]
 
 
 # #mycursor.execute(sqlFormula, student1)
@@ -39,8 +62,7 @@ id = 1
 formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
 # Assuming you have a cursor named cursor you want to execute this query on:
 #mycursor.execute('insert into students(id, date_created) values(%s, %s)', (id, formatted_date))
-mycursor.execute("ALTER TABLE student ADD time MEDIUMINT primary key NOT NULL AUTO_INCREMENT")
-mydb.commit
+
 
 #sql = "SELECT * FROM students WHERE name LIKE '%a%'"
 
@@ -61,9 +83,9 @@ mydb.commit
 # mycursor.execute(sqlFormula, values)
 # mydb.commit()
 
-# sql = "DELETE FROM students WHERE name = 'zeebo'"
-# mycursor.execute(sql)
-# mydb.commit()
+sql = "DELETE FROM students WHERE name = 'Charles'"
+mycursor.execute(sql)
+mydb.commit()
 
 # nam = input("Name: ")
 # num = input("Age: ")
