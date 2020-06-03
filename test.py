@@ -21,8 +21,13 @@ Numbers = doc["Numbers"]
 # while Numbers[x] != 1 :
 #     x = x + 1
 #     print(x)
-for value in doc["Numbers"].values() :
-    print (value)
+# for value in doc["Numbers"].values() :
+#     print (value)
+
+for key,value in doc["Numbers"].items():
+    if key == 'Goal':
+         print(value)
+
 mydb = mysql.connector.connect(
     host = hostInfo,
     user = userInfo,

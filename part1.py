@@ -6,6 +6,16 @@ import mysql.connector
 import csv
 import logging
 
+import yaml
+
+with open('test2.yaml', 'r') as yam:
+    doc = yaml.safe_load(yam)
+
+hostInfo = doc["DatabaseInfo"]["host"]
+userInfo = doc["DatabaseInfo"]["user"]
+passwdInfo = doc["DatabaseInfo"]["passwd"]
+databaseInfo = doc["DatabaseInfo"]["database"]
+
 # import sqlalchemy
 # from sqlalchemy import create_engine
 # engine = create_engine('mysql+pymysql://root:password@localhost:3306/test2')
@@ -42,10 +52,10 @@ df.columns = df.columns.str.strip()
 logger.debug(df.columns)
 
 mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "password",
-    database = "test2"
+    host = hostInfo,
+    user = userInfo,
+    passwd = passwdInfo,
+    database = databaseInfo
 )
 # print (mydb)
 mycursor = mydb.cursor()
@@ -60,15 +70,21 @@ mycursor = mydb.cursor()
 #df.columns = myresult2
 #print (df)
 
-def POD (row):
-    if row['Assignment_group'] == 'Dedicated Ops US Only – Compute' or row['Assignment_group'] == 'Sweep - Dedicated Ops_Non-Managed' or row['Assignment_group'] == 'Dedicated Ops US Only – Security' or row['Assignment_group'] == 'Dedicated Ops US Only – Network' or row['Assignment_group'] == 'Sweep - Dedicated Ops_All' :
-        return 'Dedicated POD'
+# def POD (row):
+#     if row['Assignment_group'] == 'Dedicated Ops US Only – Compute' or row['Assignment_group'] == 'Sweep - Dedicated Ops_Non-Managed' or row['Assignment_group'] == 'Dedicated Ops US Only – Security' or row['Assignment_group'] == 'Dedicated Ops US Only – Network' or row['Assignment_group'] == 'Sweep - Dedicated Ops_All' :
+#         return 'Dedicated POD'
     
-    elif row['Assignment_group'] == 'Sweep - FTS POD_Non-Managed' or row['Assignment_group'] == 'FTS POD – Network' or row['Assignment_group'] == 'FTS POD – Compute' or row['Assignment_group'] == 'Sweep - FTS POD_All' or row['Assignment_group'] == 'FTS POD – Security' :
-        return 'FTS POD'
+#     elif row['Assignment_group'] == 'Sweep - FTS POD_Non-Managed' or row['Assignment_group'] == 'FTS POD – Network' or row['Assignment_group'] == 'FTS POD – Compute' or row['Assignment_group'] == 'Sweep - FTS POD_All' or row['Assignment_group'] == 'FTS POD – Security' :
+#         return 'FTS POD'
 
-    elif row['Assignment_group'] == 'Sweep - Shared POD_Non-Managed' or row['Assignment_group'] == 'Shared POD – Network' or row['Assignment_group'] == 'Shared POD – Compute' or row['Assignment_group'] == 'Shared POD – Storage' or row['Assignment_group'] == 'Shared POD – Transport' :
-        return 'Shared POD'
+#     elif row['Assignment_group'] == 'Sweep - Shared POD_Non-Managed' or row['Assignment_group'] == 'Shared POD – Network' or row['Assignment_group'] == 'Shared POD – Compute' or row['Assignment_group'] == 'Shared POD – Storage' or row['Assignment_group'] == 'Shared POD – Transport' :
+#         return 'Shared POD'
+
+def POD (row):
+    for key,value in doc["POD"].items():
+        if row['Assignment_group'] == key :
+            return value
+    
 
 
 #print(df.apply (lambda row: POD(row), axis=1))
@@ -291,6 +307,7 @@ while (operation != 'done'):
         df['POD'] = df.apply (lambda row: POD(row), axis=1)
         logger.info('Now with POD column')
         logger.info(df)
+        print (df)
 
     elif (operation == '5'): #MAP ALERT CATEGORY
         df['ALERT_CATEGORY'] = df.apply (lambda row: AlertCat(row), axis=1)
