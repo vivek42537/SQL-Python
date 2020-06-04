@@ -22,3 +22,74 @@ POD:
   Shared POD – Compute: Shared POD
   Shared POD – Storage: Shared POD
   Shared POD – Transport: Shared POD
+
+#ALERT CATEGORY COLUMNS
+
+Configuration Item:
+  crlps: Ciena Carrier Ethernet
+  phlps: Ciena Carrier Ethernet
+  rchps: Ciena Carrier Ethernet
+  cpedellps: Ciena Carrier Ethernet
+  DCO: DCO
+  IPDU: IPDU
+  esx: Vcenter/CO
+  prx: Vcenter/CO
+  r2c: R2C SR
+  r2c*srm: R2C SRM
+  ucs: UCS Alert
+  lb-: LB Alert
+  nsx: NSX Alert
+
+Summary:
+  Node Down: Node Down
+  Node or Connection down: Node Down
+  Link down: Link Down/Link Flapping
+  Link Flap: Link Down/Link Flapping
+  Server Reboot: Server Reboot
+  System Reboot: System Reboot
+  Agent Health Problem: Agent Health Problem
+  Agent Restart: Agent Restart
+  cpu uti: CPU Utilization
+  memory uti: Memory Utilization
+  swap uti: SWAP Utilization
+  filesystem: Filesystem Utilization
+  Menzies island group connection issues: Menzies island group connection issues
+  trap rate: Trap Storm
+  BGP: BGP
+  syslog: Syslog Message
+  acih: ACI
+  smti: Vcenter/CO
+  datacenter: Vcenter/CO
+  vsphere: Vcenter/CO
+  ospf: OSPF Alert
+  KEEP ALIVE: KEEP ALIVE
+  metric: Sitescope Alert
+  good: Sitescope Alert
+  monitor: Sitescope Alert
+  ucs: UCS Alert
+  Remote site: Remote Site Unreachable
+  service: Service Down
+  process: Process Down
+  MAX0902: AS/400
+  Chassis down: Chassis down
+  Event Storm: Event Storm
+  FRU: FRU Alert
+  Forwarder: Forwarder Alert
+  Symmetrix: Symmetrix Alert
+  TVault: TVault Backup Job Alert
+  QA Probe: ICMP Jitter
+  ICMP Jitter: ICMP Jitter
+  Multiple events received for tenant: ACI
+
+Category_u_category:
+  security: Security Alert
+  storage: Storage Alert
+
+Assignment_group:
+  backup: Backup Alert
+  televault: Televault Alert
+  transport: Ciena Alert
+  GCSM-RS-CR-OPS-SUPPORT: R2C SR
+
+Company:
+  cloud platform: UCS Alert

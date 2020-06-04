@@ -25,8 +25,8 @@ Numbers = doc["Numbers"]
 #     print (value)
 
 for key,value in doc["Numbers"].items():
-    if key == 'Goal':
-         print(value)
+    if key.lower() == 'goal':
+        print(value)
 
 mydb = mysql.connector.connect(
     host = hostInfo,
