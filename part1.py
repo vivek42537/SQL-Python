@@ -93,25 +93,36 @@ def POD (row):
 # logger.info(df)
 
 def AlertCat (row):
+    
     for key,value in doc["Configuration Item"].items():
         if (row['Configuration_item'] is not None) and (key.lower() in row['Configuration_item'].lower()) :
             return value
+        else:
     
-    for key,value in doc["Summary"].items():
-        if (row['Summary'] is not None) and (key.lower() in row['Summary'].lower()) :
-            return value
+            for key,value in doc["Summary"].items():
+                if (row['Summary'] is not None) and (key.lower() in row['Summary'].lower()) :
+                    if (value.lower() == 'sitescope alert') :
+                        if('database' in row['Summary'].lower()) :
+                            return 'Sitescope Database'
+                        else:
+                            return 'Sitescope Others'
+                    if (value.lower() != 'sitescope alert') :
+                        return value
+                else:
     
-    for key,value in doc["Category_u_category"].items():
-        if (row['Category_u_category'] is not None) and (key.lower() in row['Category_u_category'].lower()) :
-            return value
+                    for key,value in doc["Category_u_category"].items():
+                        if (row['Category_u_category'] is not None) and (key.lower() in row['Category_u_category'].lower()) :
+                            return value
+                        else:
 
-    for key,value in doc["Assignment_group"].items():
-        if (row['Assignment_group'] is not None) and (key.lower() in row['Assignment_group'].lower()) :
-            return value
+                            for key,value in doc["Assignment_group"].items():
+                                if (row['Assignment_group'] is not None) and (key.lower() in row['Assignment_group'].lower()) :
+                                    return value
+                                else:
 
-    for key,value in doc["Company"].items():
-        if (row['Company'] is not None) and (key.lower() in row['Company'].lower()) :
-            return value
+                                    for key,value in doc["Company"].items():
+                                        if (row['Company'] is not None) and (key.lower() in row['Company'].lower()) :
+                                            return value
 
 # def AlertCat (row):
 #     if (row['Configuration_item'] is not None) and ('crlps' in row['Configuration_item'] or 'phlps' in row['Configuration_item'] or 'rchps' in row['Configuration_item'] or 'cpedellps' in row['Configuration_item']) :

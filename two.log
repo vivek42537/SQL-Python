@@ -1929,3 +1929,621 @@ INFO:__main__
 1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
 
 [1008 rows x 24 columns]
+INFO:__main__
+:          Number                                            Summary              Configuration_item         ...                     Created_by Created_date             Location
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s         ...           doitwise.integration   2020-05-04         FL.MIAMI.141
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.001
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so         ...           doitwise.integration   2020-05-04  MA.SOUTHBOROUGH.001
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2         ...           doitwise.integration   2020-05-04        CO.AURORA.103
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1         ...           doitwise.integration   2020-05-04        CO.AURORA.103
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1         ...           doitwise.integration   2020-05-04    NJ.PISCATAWAY.102
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+...          ...                                                ...                             ...         ...                            ...          ...                  ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net         ...           doitwise.integration   2020-05-04         FL.TAMPA.129
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+985   INC3416268                         Node Down on 10.141.180.74                           csech         ...           doitwise.integration   2020-05-04        FR:LOGNES.001
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s         ...           doitwise.integration   2020-05-04         FL.MIAMI.141
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01         ...           doitwise.integration   2020-05-04       MX:REYNOSA.101
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net         ...           doitwise.integration   2020-05-04        GB:LONDON.001
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.287
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1         ...           doitwise.integration   2020-05-04    TX.RICHARDSON.104
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster         ...           doitwise.integration   2020-05-04     NJ.CARLSTADT.007
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+
+[1008 rows x 22 columns]
+DEBUG:__main__
+:Index(['Number', 'Summary', 'Configuration_item', 'Created', 'Company',
+       'Assignment_group', 'Reassignment_count', 'Priority', 'Status', 'State',
+       'Assigned_to', 'Caller', 'Updated', 'Category', 'Category_u_category',
+       'Resolve_time', 'Resolved_By', 'Resolved_at', 'Resolved_by2',
+       'Created_by', 'Created_date', 'Location'],
+      dtype='object')
+INFO:__main__
+:Now with POD column
+INFO:__main__
+:          Number                                            Summary              Configuration_item      ...       Created_date             Location            POD
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01      ...         2020-05-04  PA.PHILADELPHIA.007     Shared POD
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24      ...         2020-05-04   ON.MISSISSAUGA.101        FTS POD
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01      ...         2020-05-04        GB:WOKING.001     Shared POD
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01      ...         2020-05-04   ON.MISSISSAUGA.101           None
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s      ...         2020-05-04         FL.MIAMI.141  Dedicated Pod
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50      ...         2020-05-04   ON.MISSISSAUGA.001        FTS POD
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new      ...         2020-05-04   ON.MISSISSAUGA.101  Dedicated Pod
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so      ...         2020-05-04  MA.SOUTHBOROUGH.001           None
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net      ...         2020-05-04  PA.PHILADELPHIA.007           None
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3      ...         2020-05-04   ON.MISSISSAUGA.101  Dedicated Pod
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2      ...         2020-05-04        CO.AURORA.103        FTS POD
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1      ...         2020-05-04        CO.AURORA.103        FTS POD
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1      ...         2020-05-04    NJ.PISCATAWAY.102           None
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01      ...         2020-05-04        GB:WOKING.001     Shared POD
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p      ...         2020-05-04   ON.MISSISSAUGA.101     Shared POD
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05      ...         2020-05-04        GB:WOKING.001     Shared POD
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025      ...         2020-05-04   ON.MISSISSAUGA.101        FTS POD
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01      ...         2020-05-04        GB:WOKING.001  Dedicated Pod
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+...          ...                                                ...                             ...      ...                ...                  ...            ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566      ...         2020-05-04        IE:DUBLIN.005  Dedicated Pod
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25      ...         2020-05-04  PA.PHILADELPHIA.011           None
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net      ...         2020-05-04         FL.TAMPA.129        FTS POD
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01      ...         2020-05-04      GB:HOUNSLOW.001     Shared POD
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400      ...         2020-05-04        IE:DUBLIN.005  Dedicated Pod
+985   INC3416268                         Node Down on 10.141.180.74                           csech      ...         2020-05-04        FR:LOGNES.001           None
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net      ...         2020-05-04      GB:HOUNSLOW.001           None
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s      ...         2020-05-04         FL.MIAMI.141  Dedicated Pod
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01      ...         2020-05-04       MX:REYNOSA.101        FTS POD
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net      ...         2020-05-04        GB:LONDON.001     Shared POD
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3      ...         2020-05-04        GB:WOKING.001     Shared POD
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3      ...         2020-05-04        GB:WOKING.001     Shared POD
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2      ...         2020-05-04  PA.PHILADELPHIA.287     Shared POD
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1      ...         2020-05-04    TX.RICHARDSON.104     Shared POD
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01      ...         2020-05-04        GB:WOKING.001     Shared POD
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08      ...         2020-05-04        IE:DUBLIN.005     Shared POD
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05      ...         2020-05-04   ON.MISSISSAUGA.101     Shared POD
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net      ...         2020-05-04      GB:HOUNSLOW.001     Shared POD
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster      ...         2020-05-04     NJ.CARLSTADT.007           None
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35      ...         2020-05-04  PA.PHILADELPHIA.007           None
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+
+[1008 rows x 23 columns]
+INFO:__main__
+:Now with ALERT_CATEGORY column
+INFO:__main__
+:          Number                                            Summary              Configuration_item           ...                        Location            POD           ALERT_CATEGORY
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01           ...             PA.PHILADELPHIA.007     Shared POD       Memory Utilization
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24           ...              ON.MISSISSAUGA.101        FTS POD         SWAP Utilization
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01           ...              ON.MISSISSAUGA.101           None            Storage Alert
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s           ...                    FL.MIAMI.141  Dedicated Pod   Filesystem Utilization
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50           ...              ON.MISSISSAUGA.001        FTS POD   Filesystem Utilization
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new           ...              ON.MISSISSAUGA.101  Dedicated Pod       Memory Utilization
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so           ...             MA.SOUTHBOROUGH.001           None           Security Alert
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net           ...             PA.PHILADELPHIA.007           None           Security Alert
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3           ...              ON.MISSISSAUGA.101  Dedicated Pod       Memory Utilization
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2           ...                   CO.AURORA.103        FTS POD           Security Alert
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1           ...                   CO.AURORA.103        FTS POD           Security Alert
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1           ...               NJ.PISCATAWAY.102           None           Security Alert
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p           ...              ON.MISSISSAUGA.101     Shared POD   Filesystem Utilization
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025           ...              ON.MISSISSAUGA.101        FTS POD       Memory Utilization
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01           ...                   GB:WOKING.001  Dedicated Pod   Filesystem Utilization
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+...          ...                                                ...                             ...           ...                             ...            ...                      ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566           ...                   IE:DUBLIN.005  Dedicated Pod       Memory Utilization
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25           ...             PA.PHILADELPHIA.011           None       Sitescope Database
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net           ...                    FL.TAMPA.129        FTS POD                Node Down
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01           ...                 GB:HOUNSLOW.001     Shared POD         SWAP Utilization
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400           ...                   IE:DUBLIN.005  Dedicated Pod         SWAP Utilization
+985   INC3416268                         Node Down on 10.141.180.74                           csech           ...                   FR:LOGNES.001           None                Node Down
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net           ...                 GB:HOUNSLOW.001           None                     None
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s           ...                    FL.MIAMI.141  Dedicated Pod       Memory Utilization
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01           ...                  MX:REYNOSA.101        FTS POD  Remote Site Unreachable
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net           ...                   GB:LONDON.001     Shared POD              Ciena Alert
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3           ...                   GB:WOKING.001     Shared POD              Ciena Alert
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3           ...                   GB:WOKING.001     Shared POD              Ciena Alert
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2           ...             PA.PHILADELPHIA.287     Shared POD         SWAP Utilization
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1           ...               TX.RICHARDSON.104     Shared POD       Memory Utilization
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01           ...                   GB:WOKING.001     Shared POD            Server Reboot
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08           ...                   IE:DUBLIN.005     Shared POD       Memory Utilization
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05           ...              ON.MISSISSAUGA.101     Shared POD                Node Down
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net           ...                 GB:HOUNSLOW.001     Shared POD              Ciena Alert
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster           ...                NJ.CARLSTADT.007           None           Security Alert
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35           ...             PA.PHILADELPHIA.007           None               Trap Storm
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+
+[1008 rows x 24 columns]
+INFO:__main__
+:          Number                                            Summary              Configuration_item         ...                     Created_by Created_date             Location
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s         ...           doitwise.integration   2020-05-04         FL.MIAMI.141
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.001
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so         ...           doitwise.integration   2020-05-04  MA.SOUTHBOROUGH.001
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2         ...           doitwise.integration   2020-05-04        CO.AURORA.103
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1         ...           doitwise.integration   2020-05-04        CO.AURORA.103
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1         ...           doitwise.integration   2020-05-04    NJ.PISCATAWAY.102
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+...          ...                                                ...                             ...         ...                            ...          ...                  ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net         ...           doitwise.integration   2020-05-04         FL.TAMPA.129
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+985   INC3416268                         Node Down on 10.141.180.74                           csech         ...           doitwise.integration   2020-05-04        FR:LOGNES.001
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s         ...           doitwise.integration   2020-05-04         FL.MIAMI.141
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01         ...           doitwise.integration   2020-05-04       MX:REYNOSA.101
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net         ...           doitwise.integration   2020-05-04        GB:LONDON.001
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.287
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1         ...           doitwise.integration   2020-05-04    TX.RICHARDSON.104
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster         ...           doitwise.integration   2020-05-04     NJ.CARLSTADT.007
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+
+[1008 rows x 22 columns]
+DEBUG:__main__
+:Index(['Number', 'Summary', 'Configuration_item', 'Created', 'Company',
+       'Assignment_group', 'Reassignment_count', 'Priority', 'Status', 'State',
+       'Assigned_to', 'Caller', 'Updated', 'Category', 'Category_u_category',
+       'Resolve_time', 'Resolved_By', 'Resolved_at', 'Resolved_by2',
+       'Created_by', 'Created_date', 'Location'],
+      dtype='object')
+INFO:__main__
+:Now with POD column
+INFO:__main__
+:          Number                                            Summary              Configuration_item      ...       Created_date             Location            POD
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01      ...         2020-05-04  PA.PHILADELPHIA.007     Shared POD
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24      ...         2020-05-04   ON.MISSISSAUGA.101        FTS POD
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01      ...         2020-05-04        GB:WOKING.001     Shared POD
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01      ...         2020-05-04   ON.MISSISSAUGA.101           None
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s      ...         2020-05-04         FL.MIAMI.141  Dedicated Pod
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50      ...         2020-05-04   ON.MISSISSAUGA.001        FTS POD
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new      ...         2020-05-04   ON.MISSISSAUGA.101  Dedicated Pod
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so      ...         2020-05-04  MA.SOUTHBOROUGH.001           None
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net      ...         2020-05-04  PA.PHILADELPHIA.007           None
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3      ...         2020-05-04   ON.MISSISSAUGA.101  Dedicated Pod
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2      ...         2020-05-04        CO.AURORA.103        FTS POD
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1      ...         2020-05-04        CO.AURORA.103        FTS POD
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1      ...         2020-05-04    NJ.PISCATAWAY.102           None
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01      ...         2020-05-04        GB:WOKING.001     Shared POD
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p      ...         2020-05-04   ON.MISSISSAUGA.101     Shared POD
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05      ...         2020-05-04        GB:WOKING.001     Shared POD
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025      ...         2020-05-04   ON.MISSISSAUGA.101        FTS POD
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01      ...         2020-05-04        GB:WOKING.001  Dedicated Pod
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+...          ...                                                ...                             ...      ...                ...                  ...            ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566      ...         2020-05-04        IE:DUBLIN.005  Dedicated Pod
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25      ...         2020-05-04  PA.PHILADELPHIA.011           None
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net      ...         2020-05-04         FL.TAMPA.129        FTS POD
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01      ...         2020-05-04      GB:HOUNSLOW.001     Shared POD
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400      ...         2020-05-04        IE:DUBLIN.005  Dedicated Pod
+985   INC3416268                         Node Down on 10.141.180.74                           csech      ...         2020-05-04        FR:LOGNES.001           None
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net      ...         2020-05-04      GB:HOUNSLOW.001           None
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s      ...         2020-05-04         FL.MIAMI.141  Dedicated Pod
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01      ...         2020-05-04       MX:REYNOSA.101        FTS POD
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net      ...         2020-05-04        GB:LONDON.001     Shared POD
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3      ...         2020-05-04        GB:WOKING.001     Shared POD
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3      ...         2020-05-04        GB:WOKING.001     Shared POD
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2      ...         2020-05-04  PA.PHILADELPHIA.287     Shared POD
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1      ...         2020-05-04    TX.RICHARDSON.104     Shared POD
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01      ...         2020-05-04        GB:WOKING.001     Shared POD
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08      ...         2020-05-04        IE:DUBLIN.005     Shared POD
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05      ...         2020-05-04   ON.MISSISSAUGA.101     Shared POD
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net      ...         2020-05-04      GB:HOUNSLOW.001     Shared POD
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster      ...         2020-05-04     NJ.CARLSTADT.007           None
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35      ...         2020-05-04  PA.PHILADELPHIA.007           None
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+
+[1008 rows x 23 columns]
+INFO:__main__
+:Now with ALERT_CATEGORY column
+INFO:__main__
+:          Number                                            Summary              Configuration_item           ...                        Location            POD           ALERT_CATEGORY
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01           ...             PA.PHILADELPHIA.007     Shared POD       Memory Utilization
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24           ...              ON.MISSISSAUGA.101        FTS POD         SWAP Utilization
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01           ...              ON.MISSISSAUGA.101           None                     None
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s           ...                    FL.MIAMI.141  Dedicated Pod   Filesystem Utilization
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50           ...              ON.MISSISSAUGA.001        FTS POD   Filesystem Utilization
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new           ...              ON.MISSISSAUGA.101  Dedicated Pod       Memory Utilization
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so           ...             MA.SOUTHBOROUGH.001           None                     None
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net           ...             PA.PHILADELPHIA.007           None                     None
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3           ...              ON.MISSISSAUGA.101  Dedicated Pod       Memory Utilization
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2           ...                   CO.AURORA.103        FTS POD                     None
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1           ...                   CO.AURORA.103        FTS POD                     None
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1           ...               NJ.PISCATAWAY.102           None                     None
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p           ...              ON.MISSISSAUGA.101     Shared POD   Filesystem Utilization
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025           ...              ON.MISSISSAUGA.101        FTS POD       Memory Utilization
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01           ...                   GB:WOKING.001  Dedicated Pod   Filesystem Utilization
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+...          ...                                                ...                             ...           ...                             ...            ...                      ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566           ...                   IE:DUBLIN.005  Dedicated Pod       Memory Utilization
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25           ...             PA.PHILADELPHIA.011           None       Sitescope Database
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net           ...                    FL.TAMPA.129        FTS POD                Node Down
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01           ...                 GB:HOUNSLOW.001     Shared POD         SWAP Utilization
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400           ...                   IE:DUBLIN.005  Dedicated Pod         SWAP Utilization
+985   INC3416268                         Node Down on 10.141.180.74                           csech           ...                   FR:LOGNES.001           None                Node Down
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net           ...                 GB:HOUNSLOW.001           None                     None
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s           ...                    FL.MIAMI.141  Dedicated Pod       Memory Utilization
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01           ...                  MX:REYNOSA.101        FTS POD  Remote Site Unreachable
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net           ...                   GB:LONDON.001     Shared POD                     None
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3           ...                   GB:WOKING.001     Shared POD                     None
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3           ...                   GB:WOKING.001     Shared POD                     None
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2           ...             PA.PHILADELPHIA.287     Shared POD         SWAP Utilization
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1           ...               TX.RICHARDSON.104     Shared POD       Memory Utilization
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01           ...                   GB:WOKING.001     Shared POD            Server Reboot
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08           ...                   IE:DUBLIN.005     Shared POD       Memory Utilization
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05           ...              ON.MISSISSAUGA.101     Shared POD                Node Down
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net           ...                 GB:HOUNSLOW.001     Shared POD                     None
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster           ...                NJ.CARLSTADT.007           None                     None
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35           ...             PA.PHILADELPHIA.007           None               Trap Storm
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+
+[1008 rows x 24 columns]
+INFO:__main__
+:          Number                                            Summary              Configuration_item         ...                     Created_by Created_date             Location
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s         ...           doitwise.integration   2020-05-04         FL.MIAMI.141
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.001
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so         ...           doitwise.integration   2020-05-04  MA.SOUTHBOROUGH.001
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2         ...           doitwise.integration   2020-05-04        CO.AURORA.103
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1         ...           doitwise.integration   2020-05-04        CO.AURORA.103
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1         ...           doitwise.integration   2020-05-04    NJ.PISCATAWAY.102
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+...          ...                                                ...                             ...         ...                            ...          ...                  ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net         ...           doitwise.integration   2020-05-04         FL.TAMPA.129
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+985   INC3416268                         Node Down on 10.141.180.74                           csech         ...           doitwise.integration   2020-05-04        FR:LOGNES.001
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s         ...           doitwise.integration   2020-05-04         FL.MIAMI.141
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01         ...           doitwise.integration   2020-05-04       MX:REYNOSA.101
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net         ...           doitwise.integration   2020-05-04        GB:LONDON.001
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.287
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1         ...           doitwise.integration   2020-05-04    TX.RICHARDSON.104
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01         ...           doitwise.integration   2020-05-04        GB:WOKING.001
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08         ...           doitwise.integration   2020-05-04        IE:DUBLIN.005
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05         ...           doitwise.integration   2020-05-04   ON.MISSISSAUGA.101
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net         ...           doitwise.integration   2020-05-04      GB:HOUNSLOW.001
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster         ...           doitwise.integration   2020-05-04     NJ.CARLSTADT.007
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.007
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17         ...           doitwise.integration   2020-05-04  PA.PHILADELPHIA.011
+
+[1008 rows x 22 columns]
+DEBUG:__main__
+:Index(['Number', 'Summary', 'Configuration_item', 'Created', 'Company',
+       'Assignment_group', 'Reassignment_count', 'Priority', 'Status', 'State',
+       'Assigned_to', 'Caller', 'Updated', 'Category', 'Category_u_category',
+       'Resolve_time', 'Resolved_By', 'Resolved_at', 'Resolved_by2',
+       'Created_by', 'Created_date', 'Location'],
+      dtype='object')
+INFO:__main__
+:Now with POD column
+INFO:__main__
+:          Number                                            Summary              Configuration_item      ...       Created_date             Location            POD
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01      ...         2020-05-04  PA.PHILADELPHIA.007     Shared POD
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24      ...         2020-05-04   ON.MISSISSAUGA.101        FTS POD
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01      ...         2020-05-04        GB:WOKING.001     Shared POD
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01      ...         2020-05-04   ON.MISSISSAUGA.101           None
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s      ...         2020-05-04         FL.MIAMI.141  Dedicated Pod
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50      ...         2020-05-04   ON.MISSISSAUGA.001        FTS POD
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new      ...         2020-05-04   ON.MISSISSAUGA.101  Dedicated Pod
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so      ...         2020-05-04  MA.SOUTHBOROUGH.001           None
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net      ...         2020-05-04  PA.PHILADELPHIA.007           None
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3      ...         2020-05-04   ON.MISSISSAUGA.101  Dedicated Pod
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2      ...         2020-05-04        CO.AURORA.103        FTS POD
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1      ...         2020-05-04        CO.AURORA.103        FTS POD
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1      ...         2020-05-04    NJ.PISCATAWAY.102           None
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01      ...         2020-05-04        GB:WOKING.001     Shared POD
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p      ...         2020-05-04   ON.MISSISSAUGA.101     Shared POD
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05      ...         2020-05-04        GB:WOKING.001     Shared POD
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025      ...         2020-05-04   ON.MISSISSAUGA.101        FTS POD
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01      ...         2020-05-04        GB:WOKING.001  Dedicated Pod
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+...          ...                                                ...                             ...      ...                ...                  ...            ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566      ...         2020-05-04        IE:DUBLIN.005  Dedicated Pod
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25      ...         2020-05-04  PA.PHILADELPHIA.011           None
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net      ...         2020-05-04         FL.TAMPA.129        FTS POD
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01      ...         2020-05-04      GB:HOUNSLOW.001     Shared POD
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400      ...         2020-05-04        IE:DUBLIN.005  Dedicated Pod
+985   INC3416268                         Node Down on 10.141.180.74                           csech      ...         2020-05-04        FR:LOGNES.001           None
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net      ...         2020-05-04      GB:HOUNSLOW.001           None
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s      ...         2020-05-04         FL.MIAMI.141  Dedicated Pod
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01      ...         2020-05-04       MX:REYNOSA.101        FTS POD
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net      ...         2020-05-04        GB:LONDON.001     Shared POD
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3      ...         2020-05-04        GB:WOKING.001     Shared POD
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3      ...         2020-05-04        GB:WOKING.001     Shared POD
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2      ...         2020-05-04  PA.PHILADELPHIA.287     Shared POD
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1      ...         2020-05-04    TX.RICHARDSON.104     Shared POD
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01      ...         2020-05-04        GB:WOKING.001     Shared POD
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08      ...         2020-05-04        IE:DUBLIN.005     Shared POD
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05      ...         2020-05-04   ON.MISSISSAUGA.101     Shared POD
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net      ...         2020-05-04      GB:HOUNSLOW.001     Shared POD
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster      ...         2020-05-04     NJ.CARLSTADT.007           None
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35      ...         2020-05-04  PA.PHILADELPHIA.007           None
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17      ...         2020-05-04  PA.PHILADELPHIA.011           None
+
+[1008 rows x 23 columns]
+INFO:__main__
+:Now with ALERT_CATEGORY column
+INFO:__main__
+:          Number                                            Summary              Configuration_item           ...                        Location            POD           ALERT_CATEGORY
+0     INC3417343  Team:MSS Memory utilization is above Major Thr...                 sdcrsrirvcpod01           ...             PA.PHILADELPHIA.007     Shared POD       Memory Utilization
+1     INC3417342        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+2     INC3417341        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+3     INC3417340  Team:CMS SWAP utilization is above Minor Thres...              aec1-casun1mvdap24           ...              ON.MISSISSAUGA.101        FTS POD         SWAP Utilization
+4     INC3417339  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbppiv01           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+5     INC3417338  Incr_Backup - Backup of G3MSGPAD01 from policy...                      g3msgpad01           ...              ON.MISSISSAUGA.101           None             Backup Alert
+6     INC3417337        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+7     INC3417336  SBEC : Team:CMS One or more filesystem has bre...                   hdqpswggdb01s           ...                    FL.MIAMI.141  Dedicated Pod   Filesystem Utilization
+8     INC3417335  SBEC : Team:MSS One or more filesystem has bre...              aec1-casun1mvqdb50           ...              ON.MISSISSAUGA.001        FTS POD   Filesystem Utilization
+9     INC3417334  Team:CMS Memory utilization is above Minor Thr...                    s2tsms49-new           ...              ON.MISSISSAUGA.101  Dedicated Pod       Memory Utilization
+10    INC3417333  SBEC: McAfee Network IPS: Exploit Scan Detecte...                    mbhrxadp1_so           ...             MA.SOUTHBOROUGH.001           None           Security Alert
+11    INC3417332  SBEC: McAfee Network IPS: Exploit Scan Detecte...          phlatdp1.oamp.sgns.net           ...             PA.PHILADELPHIA.007           None           Security Alert
+12    INC3417331  Team:CMS Memory utilization is above Minor Thr...                   devs1apms89-3           ...              ON.MISSISSAUGA.101  Dedicated Pod       Memory Utilization
+13    INC3417330        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+14    INC3417329    SBEC - Multiple interfaces down on - aur1fct0p2                      aur1fct0p2           ...                   CO.AURORA.103        FTS POD           Security Alert
+15    INC3417328    SBEC - Multiple interfaces down on - aur1fct0p1                      aur1fct0p1           ...                   CO.AURORA.103        FTS POD           Security Alert
+16    INC3417326        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+17    INC3417325  RepetitionCount > 3 ; McAfee Network IDS Alert...                      cpechr1pp1           ...               NJ.PISCATAWAY.102           None           Security Alert
+18    INC3417324        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+19    INC3417323  Team:CMS Memory utilization is above Minor Thr...              wiah-watc3cmsstg01           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+20    INC3417322        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+21    INC3417321        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+22    INC3417320  SBEC : Team:MSS One or more filesystem has bre...                  tpam-sgpickd3p           ...              ON.MISSISSAUGA.101     Shared POD   Filesystem Utilization
+23    INC3417319        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+24    INC3417318  Team:CMS Memory utilization is above Minor Thr...                   ubmg-gbpapp05           ...                   GB:WOKING.001     Shared POD       Memory Utilization
+25    INC3417316        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+26    INC3417315  Team:CMS Memory utilization is above Minor Thr...             aec1-casun1mvpdb025           ...              ON.MISSISSAUGA.101        FTS POD       Memory Utilization
+27    INC3417314        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+28    INC3417313  SBEC : Team:CMS One or more filesystem has bre...               su6d-ukxspbnpdb01           ...                   GB:WOKING.001  Dedicated Pod   Filesystem Utilization
+29    INC3417312        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+...          ...                                                ...                             ...           ...                             ...            ...                      ...
+978   INC3416275  Team:CMS Memory utilization is above Minor Thr...                   tr0idub5sv566           ...                   IE:DUBLIN.005  Dedicated Pod       Memory Utilization
+979   INC3416274  The DatabaseMonitor Severity:4 Team:DBS SQLSer...                    phl2mssprw25           ...             PA.PHILADELPHIA.011           None       Sitescope Database
+980   INC3416273        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+981   INC3416272      #SBEC :Node or Connection Down on 10.38.20.70  TPA-GSE-LAN-SW01.oamp.sgns.net           ...                    FL.TAMPA.129        FTS POD                Node Down
+982   INC3416271  Team:CMS SWAP utilization is above Minor Thres...                wiah-waltcfaca01           ...                 GB:HOUNSLOW.001     Shared POD         SWAP Utilization
+983   INC3416270        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+984   INC3416269  Team:CMS SWAP utilization is above Minor Thres...                   tr0idub5sv400           ...                   IE:DUBLIN.005  Dedicated Pod         SWAP Utilization
+985   INC3416268                         Node Down on 10.141.180.74                           csech           ...                   FR:LOGNES.001           None                Node Down
+986   INC3416267  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net           ...                 GB:HOUNSLOW.001           None                     None
+987   INC3416266  Team:CMS Memory utilization is above Minor Thr...                   hdqppshrdb01s           ...                    FL.MIAMI.141  Dedicated Pod       Memory Utilization
+988   INC3416264        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+989   INC3416263  SBEC :Remote site containing node REX-OPS-T1-W...              rex-ops-t1-wan-r01           ...                  MX:REYNOSA.101        FTS POD  Remote Site Unreachable
+990   INC3416262        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+991   INC3416261        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+992   INC3416260  TX Tuning in Progress lon2iw7:OTM2-3-13-1,TXTU...         lon2iw7-3.oamp.sgns.net           ...                   GB:LONDON.001     Shared POD              Ciena Alert
+993   INC3416259  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3           ...                   GB:WOKING.001     Shared POD              Ciena Alert
+994   INC3416258  Laser Off Far End Failure Triggered wok1iw7:FL...                       wok1iw7-3           ...                   GB:WOKING.001     Shared POD              Ciena Alert
+995   INC3416257  Team:CMS SWAP utilization is above Minor Thres...              edeu-cld-prod-db-2           ...             PA.PHILADELPHIA.287     Shared POD         SWAP Utilization
+996   INC3416256        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+997   INC3416255  Team:CMS Memory utilization is above Minor Thr...                           bhis1           ...               TX.RICHARDSON.104     Shared POD       Memory Utilization
+998   INC3416254  Possible server reboot detected (uptime less t...                    aslh-haprd01           ...                   GB:WOKING.001     Shared POD            Server Reboot
+999   INC3416253        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1000  INC3416252        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1001  INC3416251  Team:CMS Memory utilization is above Minor Thr...                    al0kdub5sv08           ...                   IE:DUBLIN.005     Shared POD       Memory Utilization
+1002  INC3416250                        Node Down on 10.140.217.204                    te07-xpwap05           ...              ON.MISSISSAUGA.101     Shared POD                Node Down
+1003  INC3416249        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+1004  INC3416248  SBEC : Multiple alarms received  on circuit ID...              hou1iw7-1.sgns.net           ...                 GB:HOUNSLOW.001     Shared POD              Ciena Alert
+1005  INC3416247  SBEC: McAfee Network IPS: Exploit Scan Detecte...             crlelepp1_2-cluster           ...                NJ.CARLSTADT.007           None           Security Alert
+1006  INC3416246  Trap rate is 248.14 traps/sec. Blocked all tra...                    phl2osspru35           ...             PA.PHILADELPHIA.007           None               Trap Storm
+1007  INC3416245        Summary: KEEP ALIVE MONITOR - DO NOT ACTION                    phl2ossprw17           ...             PA.PHILADELPHIA.011           None               KEEP ALIVE
+
+[1008 rows x 24 columns]
