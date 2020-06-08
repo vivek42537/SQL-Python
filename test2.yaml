@@ -4,6 +4,9 @@ DatabaseInfo:
   passwd: password
   database: test2
 
+# Num:
+#   INC: incorrect
+
 POD:
   Dedicated Ops US Only – Compute: Dedicated Pod
   Sweep - Dedicated Ops_Non-Managed: Dedicated Pod
@@ -20,7 +23,7 @@ POD:
   Sweep - Shared POD_Non-Managed: Shared POD
   Shared POD – Network: Shared POD
   Shared POD – Compute: Shared POD
-  Shared POD – Storage: Shared POD
+  Shared POD – Storage: Shared POD 
   Shared POD – Transport: Shared POD
 
 #ALERT CATEGORY COLUMNS
@@ -43,7 +46,7 @@ Configuration Item:
 Summary:
   Node Down: Node Down
   Node or Connection down: Node Down
-  Link down: Link Down/Link Flapping
+  Link Down: Link Down/Link Flapping
   Link Flap: Link Down/Link Flapping
   Server Reboot: Server Reboot
   System Reboot: System Reboot
@@ -63,9 +66,9 @@ Summary:
   vsphere: Vcenter/CO
   ospf: OSPF Alert
   KEEP ALIVE: KEEP ALIVE
-  metric: Sitescope Alert
-  good: Sitescope Alert
-  monitor: Sitescope Alert
+  metric: Sitescope Others
+  good: Sitescope Others
+  monitor: Sitescope Others
   ucs: UCS Alert
   Remote site: Remote Site Unreachable
   service: Service Down
@@ -90,6 +93,13 @@ Assignment_group:
   televault: Televault Alert
   transport: Ciena Alert
   GCSM-RS-CR-OPS-SUPPORT: R2C SR
+  Shared POD – Storage: Storage Alert
 
 Company:
   cloud platform: UCS Alert
+
+# POD:
+#   Shared POD – Storage: Storage Alert
+
+# Num:
+#   INC: incorrect

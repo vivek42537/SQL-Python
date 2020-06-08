@@ -11,22 +11,28 @@ passwdInfo = doc["DatabaseInfo"]["passwd"]
 databaseInfo = doc["DatabaseInfo"]["database"]
 
 #print(doc["Numbers"])
-Numbers = doc["Numbers"]
-#print(Numbers[0])
-# if Numbers[0] + Numbers[1] + Numbers[2] == 9 :
-#     print('BOOYAH')
-# for nums in doc["Numbers"] :
-#     print (nums[1])
-# x= 0
-# while Numbers[x] != 1 :
-#     x = x + 1
-#     print(x)
-# for value in doc["Numbers"].values() :
-#     print (value)
-
-for key,value in doc["Numbers"].items():
-    if key.lower() == 'goal':
-        print(value)
+x = doc["Numbers"]
+def testy(y):
+    for key,value in doc["DatabaseInfo"].items():
+        if key == 'host' :
+            return value
+    
+        else:
+            for key,value in doc["Numbers"].items():
+                if key == 'one' :
+                    return value
+        #for key,value in doc["Numbers"].items():
+            #if key == 'three' :
+                #print ('POOP')
+# x = 5           
+# if x == 5 :
+#     print (x)
+# elif x == 5 :
+#     print ('BADDY')
+# for key,value in doc["Numbers"].items():
+#     if key.lower() == 'goal':
+#         print(value)
+print (testy(x))
 
 mydb = mysql.connector.connect(
     host = hostInfo,
@@ -58,9 +64,9 @@ mycursor = mydb.cursor()
 # mycursor.executemany(sqlFormula, students)
 
 # mydb.commit() #this command makes it show in database
-nam = input("Name: ")
-mycursor.execute("SELECT * FROM students WHERE name = '%s'",(nam))
-myresult = mycursor.fetchall() #gets specific data you want can use 'fetchone' if you want just a single entry
+#nam = input("Name: ")
+#mycursor.execute("SELECT * FROM students WHERE name = '%s'",(nam))
+#myresult = mycursor.fetchall() #gets specific data you want can use 'fetchone' if you want just a single entry
 
 # myresult = mycursor.fetchone()
 # for row in myresult:

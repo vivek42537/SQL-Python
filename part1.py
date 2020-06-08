@@ -101,18 +101,19 @@ def AlertCat (row):
     
             for key,value in doc["Summary"].items():
                 if (row['Summary'] is not None) and (key.lower() in row['Summary'].lower()) :
-                    if (value.lower() == 'sitescope alert') :
-                        if('database' in row['Summary'].lower()) :
-                            return 'Sitescope Database'
-                        else:
-                            return 'Sitescope Others'
-                    if (value.lower() != 'sitescope alert') :
+                    if (value.lower() == 'sitescope alert') and ('database' in row['Summary'].lower()) :
+                        return 'Sitescope Database'
+                    else:
                         return value
+                    
                 else:
     
                     for key,value in doc["Category_u_category"].items():
                         if (row['Category_u_category'] is not None) and (key.lower() in row['Category_u_category'].lower()) :
-                            return value
+                            if ('backup' in row['Summary'].lower()) :
+                                return 'Backup Alert' 
+                            if ('backup' not in row['Summary'].lower()) :
+                                return value
                         else:
 
                             for key,value in doc["Assignment_group"].items():
@@ -123,8 +124,14 @@ def AlertCat (row):
                                     for key,value in doc["Company"].items():
                                         if (row['Company'] is not None) and (key.lower() in row['Company'].lower()) :
                                             return value
+                                                 
 
-# def AlertCat (row):
+#                                         else:
+#                                             for key,value in doc["Num"].items():
+#                                                 if (row['Number'] is not None) and (key.lower() in row['Number'].lower()) :
+#                                                     return value
+
+# # def AlertCat (row):
 #     if (row['Configuration_item'] is not None) and ('crlps' in row['Configuration_item'] or 'phlps' in row['Configuration_item'] or 'rchps' in row['Configuration_item'] or 'cpedellps' in row['Configuration_item']) :
 #             return 'Ciena Carrier Ethernet'
 
