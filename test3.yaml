@@ -1,0 +1,128 @@
+DatabaseInfo:
+  host: localhost
+  user: root
+  passwd: password
+  database: test2
+
+# Num:
+#   INC: incorrect
+
+POD:
+  Dedicated Ops US Only – Compute: Dedicated Pod
+  Sweep - Dedicated Ops_Non-Managed: Dedicated Pod
+  Dedicated Ops US Only – Security: Dedicated Pod
+  Dedicated Ops US Only – Network: Dedicated Pod
+  Sweep - Dedicated Ops_All: Dedicated Pod
+
+  Sweep - FTS POD_Non-Managed: FTS POD
+  FTS POD – Network: FTS POD
+  FTS POD – Compute: FTS POD
+  Sweep - FTS POD_All: FTS POD
+  FTS POD – Security: FTS POD
+
+  Sweep - Shared POD_Non-Managed: Shared POD
+  Shared POD – Network: Shared POD
+  Shared POD – Compute: Shared POD
+  Shared POD – Storage: Shared POD 
+  Shared POD – Transport: Shared POD
+
+#ALERT CATEGORY COLUMNS
+
+ALERTcat:
+ crlps: 
+  - CONFIGURATION_ITEM
+  - Ciena Carrier Ethernet
+ phlps: 
+  - CONFIGURATION_ITEM
+  - Ciena Carrier Ethernet
+ rchps: 
+  - CONFIGURATION_ITEM
+  - Ciena Carrier Ethernet
+ cpedellps: 
+  - CONFIGURATION_ITEM
+  - Ciena Carrier Ethernet
+ Node Down: 
+  - SUMMARY
+  - Node Down
+ Node or Connection down: 
+  - SUMMARY
+  - Node Down
+ Link Down: 
+  - SUMMARY
+  - Link Down/Link Flapping
+ Link Flap: 
+  - SUMMARY
+  - Link Down/Link Flapping
+ Server Reboot: 
+  - SUMMARY
+  - Server Reboot
+ System Reboot: 
+  - SUMMARY
+  - System Reboot
+ Agent Health Problem: 
+  - SUMMARY
+  - Agent Health Problem
+ Agent Restart: 
+  - SUMMARY
+  - Agent Restart
+ cpu uti: 
+  - SUMMARY
+  - CPU Utilization
+ memory uti:
+  - SUMMARY
+  - Memory Utilization
+ swap uti: 
+  - SUMMARY
+  - SWAP Utilization
+ filesystem: 
+  - SUMMARY
+  - Filesystem Utilization
+ Menzies island group connection issues: 
+  - SUMMARY
+  - Menzies island group connection issues
+security:
+ - U_CATEGORY
+ - Security Alert
+backup:
+ - ASSIGNMENT_GROUP
+ - Backup Alert
+#storage: #row 21
+televault:
+ - ASSIGNMENT_GROUP
+ - Televault Alert
+storage:
+ - U_CATEGORY
+ - Storage Alert
+trap rate:
+ - SUMMARY
+ - Trap Storm
+BGP: 
+ - SUMMARY
+ - BGP
+syslog: 
+ - SUMMARY
+ - Syslog Message
+acih: 
+ - SUMMARY
+ - ACI
+DCO: 
+ - CONFIGURATION_ITEM
+ - DCO
+IPDU: 
+ - CONFIGURATION_ITEM
+ - IPDU
+smti: 
+ - SUMMARY
+ - Vcenter/CO
+datacenter: 
+ - SUMMARY
+ - Vcenter/CO
+vsphere: 
+ - SUMMARY
+ - Vcenter/CO
+esx:
+ - CONFIGURATION_ITEM
+ - Vcenter/CO
+prx:
+ - CONFIGURATION_ITEM
+ - Vcenter/CO

@@ -1,3 +1,8 @@
+# Numbers:
+#   two: dos
+#   six: ses
+#   gucci: louie
+
 DatabaseInfo:
   host: localhost
   user: root
@@ -5,8 +10,14 @@ DatabaseInfo:
   database: testdb
 
 Numbers:
-  three: tres
-  five: cinco
-  one: uno
+  three: 
+    - teen
+    - tres
+  five:
+    - cinco
+    - fat
+  one: 
+    - uno
+    - onzei
   Goal: ronaldo cristiano
 

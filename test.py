@@ -1,9 +1,49 @@
 import mysql.connector
 from datetime import datetime
 import yaml
+import ruamel.yaml
+from ruamel.yaml import YAML
+from ruamel.yaml.constructor import SafeConstructor
 
 with open('test1.yaml', 'r') as yam:
     doc = yaml.safe_load(yam)
+
+# def construct_yaml_map(self, node):
+#     # test if there are duplicate node keys
+#     keys = set()
+#     for key_node, value_node in node.value:
+#         key = self.construct_object(key_node, deep=True)
+#         if key in keys:
+#             break
+#         keys.add(key)
+#     else:
+#         data = {}  # type: Dict[Any, Any]
+#         yield data
+#         value = self.construct_mapping(node)
+#         data.update(value)
+#         return
+#     data = []
+#     yield data
+#     for key_node, value_node in node.value:
+#         key = self.construct_object(key_node, deep=True)
+#         val = self.construct_object(value_node, deep=True)
+#         data.append((key, val))
+
+# SafeConstructor.add_constructor(u'tag:yaml.org,2002:map', construct_yaml_map)
+# yaml = YAML(typ='safe')
+# with open('test1.yaml', 'r') as yam:
+#     doc = yaml.load(yam)
+#data = yaml.load(yam)
+ # {'foo': 1, 'bar': 2}
+
+# with open('test1.yaml', 'r') as f:
+#     data = f.read()
+#     data = data.replace('\n\n', '\n---\n')
+
+#     for doc in yaml.load_all(data):
+#         print(doc)
+
+# print(doc)
 
 hostInfo = doc["DatabaseInfo"]["host"]
 userInfo = doc["DatabaseInfo"]["user"]
@@ -11,16 +51,16 @@ passwdInfo = doc["DatabaseInfo"]["passwd"]
 databaseInfo = doc["DatabaseInfo"]["database"]
 
 #print(doc["Numbers"])
-x = doc["Numbers"]
+x = doc
 def testy(y):
     for key,value in doc["DatabaseInfo"].items():
-        if key == 'host' :
+        if key == 'gicc' :
             return value
     
         else:
             for key,value in doc["Numbers"].items():
-                if key == 'one' :
-                    return value
+                if key == 'three' :
+                    return value[0]
         #for key,value in doc["Numbers"].items():
             #if key == 'three' :
                 #print ('POOP')

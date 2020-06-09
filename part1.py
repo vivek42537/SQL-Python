@@ -5,6 +5,7 @@ from openpyxl import load_workbook
 import mysql.connector
 import csv
 import logging
+import numpy as np
 
 import yaml
 
@@ -88,42 +89,99 @@ def POD (row):
 
 
 #print(df.apply (lambda row: POD(row), axis=1))
-# df['POD'] = df.apply (lambda row: POD(row), axis=1)
+#df['POD'] = df.apply (lambda row: POD(row), axis=1)
 # logger.info('Now with POD column')
 # logger.info(df)
+# df.set_index('Number', inplace=True)
 
-def AlertCat (row):
+# def AlertCat_isin (df):
+#     for key,value in doc["Configuration Item"].items():
+#         cat = df.isin({'Configuration_item': [key]})
+#         df.loc[cat, 'ALERT_CATEGORY'] = value
+
+# def AlertCat (df):
+#     for key,value in doc["Configuration Item"].items():
+#         mask = np.column_stack([df.Configuration_item.str.contains(key, na=False, case=False) for col in df]) 
+#         df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
     
+#     for key,value in doc["Summary"].items():
+#         mask = np.column_stack([df.Summary.str.contains(key, na=False, case=False) for col in df]) 
+#         df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
+    
+#     for key,value in doc["Category_u_category"].items():
+#         mask = np.column_stack([df.Category_u_category.str.contains(key, na=False, case=False) for col in df]) 
+#         df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
+    
+#     for key,value in doc["Assignment_group"].items():
+#         mask = np.column_stack([df.Assignment_group.str.contains(key, na=False, case=False) for col in df]) 
+#         df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
+    
+#     for key,value in doc["Company"].items():
+#         mask = np.column_stack([df.Company.str.contains(key, na=False, case=False) for col in df]) 
+#         df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
+
+def AlertCat (df):
     for key,value in doc["Configuration Item"].items():
-        if (row['Configuration_item'] is not None) and (key.lower() in row['Configuration_item'].lower()) :
-            return value
+        mask = np.column_stack([df.Configuration_item.str.contains(key, na=False, case=False) for col in df]) 
+        df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
+    
+    for key,value in doc["Summary"].items():
+        mask = np.column_stack([df.Summary.str.contains(key, na=False, case=False) for col in df]) 
+        if ((value == 'Sitescope Others') & (np.column_stack([df.Summary.str.contains('database', na=False, case=False) for col in df]))).any():
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
         else:
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
+        #df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
+        # df[df['ALERT_CAT'].isnull()].loc[mask.any(axis=1), 'ALERT_CAT'] = value
     
-            for key,value in doc["Summary"].items():
-                if (row['Summary'] is not None) and (key.lower() in row['Summary'].lower()) :
-                    if (value.lower() == 'sitescope alert') and ('database' in row['Summary'].lower()) :
-                        return 'Sitescope Database'
-                    else:
-                        return value
+    for key,value in doc["Category_u_category"].items():
+        mask = np.column_stack([df.Category_u_category.str.contains(key, na=False, case=False) for col in df]) 
+        df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
+    
+    for key,value in doc["Assignment_group"].items():
+        mask = np.column_stack([df.Assignment_group.str.contains(key, na=False, case=False) for col in df]) 
+        df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
+    
+    for key,value in doc["Company"].items():
+        mask = np.column_stack([df.Company.str.contains(key, na=False, case=False) for col in df]) 
+        df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
+    
+    df.fillna('Other', inplace=True)
+
+# AlertCat (df)
+# print (df)
+# def AlertCat (row):
+    
+#     for key,value in doc["Configuration Item"].items():
+#         if (row['Configuration_item'] is not None) and (key.lower() in row['Configuration_item'].lower()) :
+#             return value
+#         else:
+    
+#             for key,value in doc["Summary"].items():
+#                 if (row['Summary'] is not None) and (key.lower() in row['Summary'].lower()) :
+#                     if (value.lower() == 'sitescope alert') and ('database' in row['Summary'].lower()) :
+#                         return 'Sitescope Database'
+#                     else:
+#                         return value
                     
-                else:
+#                 else:
     
-                    for key,value in doc["Category_u_category"].items():
-                        if (row['Category_u_category'] is not None) and (key.lower() in row['Category_u_category'].lower()) :
-                            if ('backup' in row['Summary'].lower()) :
-                                return 'Backup Alert' 
-                            if ('backup' not in row['Summary'].lower()) :
-                                return value
-                        else:
+#                     for key,value in doc["Category_u_category"].items():
+#                         if (row['Category_u_category'] is not None) and (key.lower() in row['Category_u_category'].lower()) :
+#                             if ('backup' in row['Summary'].lower()) :
+#                                 return 'Backup Alert' 
+#                             if ('backup' not in row['Summary'].lower()) :
+#                                 return value
+#                         else:
 
-                            for key,value in doc["Assignment_group"].items():
-                                if (row['Assignment_group'] is not None) and (key.lower() in row['Assignment_group'].lower()) :
-                                    return value
-                                else:
+#                             for key,value in doc["Assignment_group"].items():
+#                                 if (row['Assignment_group'] is not None) and (key.lower() in row['Assignment_group'].lower()) :
+#                                     return value
+#                                 else:
 
-                                    for key,value in doc["Company"].items():
-                                        if (row['Company'] is not None) and (key.lower() in row['Company'].lower()) :
-                                            return value
+#                                     for key,value in doc["Company"].items():
+#                                         if (row['Company'] is not None) and (key.lower() in row['Company'].lower()) :
+#                                             return value
                                                  
 
 #                                         else:
@@ -349,7 +407,8 @@ while (operation != 'done'):
         #print (df)
 
     elif (operation == '5'): #MAP ALERT CATEGORY
-        df['ALERT_CATEGORY'] = df.apply (lambda row: AlertCat(row), axis=1)
+        # df['ALERT_CATEGORY'] = df.apply (lambda row: AlertCat(row), axis=1)
+        AlertCat (df)
         logger.info('Now with ALERT_CATEGORY column')
         logger.info(df)
         print (df)
@@ -357,8 +416,12 @@ while (operation != 'done'):
     elif (operation == '6'): #EXPORT TO EXCEL SHEET
         fileName = input("File name: ")
         sheet = input("Sheet name: ")
-
-        writer = pd.ExcelWriter(fileName, engine='xlsxwriter')
+        book = load_workbook(fileName)
+        
+        writer = pd.ExcelWriter(fileName, engine='openpyxl')
+        writer.book = book
+        writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
+        
         df.to_excel(writer, sheet_name= sheet)
         writer.save()   
 

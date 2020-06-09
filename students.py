@@ -4,6 +4,7 @@ from openpyxl import load_workbook
 #import mysql.connector
 import csv
 from datetime import datetime
+import numpy as np
 
 
 from sqlalchemy import create_engine
@@ -18,14 +19,41 @@ timestamp = (datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'),)
 
 
 df = pd.read_csv (r'students.csv')
-print (df)
+#print (df)
 # df = df.rename(columns={'Name ': 'Name'})
 # df = df.rename(columns={'Country ': 'Country'})
 # df = df.rename(columns={'Age ': 'Age'})
 df.columns = df.columns.str.strip()
-print (df.columns)
+#print (df.columns)
+# def AlertCat_query (df):
+#     cat = df.query("Country ==  'Japan '")
+#     rowIndex = df.index[cat]
+#     print (rowIndex)
+    #df.loc[rowIndex, 'Newbie'] = 6, 
+def AlertCat (df):
+
+    #cat = df.isin({'Age': [33]})
+    #df.loc[df.index[cat], 'Newbie'] = 'Nine'
+    #print(df.Name)
+    mask = np.column_stack([df.Name.str.contains("Jon", na=False, case=False) for col in df])
+    #print(df.loc[mask.any(axis=1)])
+    df.loc[(mask.any(axis=1)), 'Newbie'] = 6
+    mask = np.column_stack([df.Name.str.contains("Jon", na=False, case=False) for col in df])
+    df.loc[mask.any(axis=1), 'Newbie'] = df.loc[mask.any(axis=1), 'Newbie'].fillna('Cool')
+    #df.Newbie = df.Newbie.fillna(98)
+    #a = pd.isnull(df.Newbies)
+    df.fillna(90, inplace=True)
+    #print(df[df['Newbie'].isnull()])
+    print (df)
+    # print (df.Newbie)
+
+    # a = pd.isnull(df.Newbie)
+    # print (a)
 
 
+AlertCat (df)
+
+#print (df)
 # mydb = mysql.connector.connect(
 #     host = "localhost",
 #     user = "root",
@@ -47,12 +75,12 @@ print (df.columns)
    
 #pd.read_sql('SELECT * FROM people',mydb).to_excel('foo.xlsx')
 #engine.execute('CREATE TABLE people9 (Name nvarchar(50), Country nvarchar(50), Age int)')
-df.to_sql('people9', con=engine)
-for row in df.itertuples():
-    engine.execute("INSERT INTO people9 (Name, Country, Age) VALUES (%s,%s,%s)",
-        (row.Name, 
-        row.Country,
-        row.Age))
+# df.to_sql('people9', con=engine)
+# for row in df.itertuples():
+#     engine.execute("INSERT INTO people9 (Name, Country, Age) VALUES (%s,%s,%s)",
+#         (row.Name, 
+#         row.Country,
+#         row.Age))
 
 
 #mydb.commit()
