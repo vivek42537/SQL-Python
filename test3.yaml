@@ -80,49 +80,64 @@ ALERTcat:
  Menzies island group connection issues: 
   - SUMMARY
   - Menzies island group connection issues
-security:
- - U_CATEGORY
- - Security Alert
-backup:
- - ASSIGNMENT_GROUP
- - Backup Alert
-#storage: #row 21
-televault:
- - ASSIGNMENT_GROUP
- - Televault Alert
-storage:
- - U_CATEGORY
- - Storage Alert
-trap rate:
- - SUMMARY
- - Trap Storm
-BGP: 
- - SUMMARY
- - BGP
-syslog: 
- - SUMMARY
- - Syslog Message
-acih: 
- - SUMMARY
- - ACI
-DCO: 
- - CONFIGURATION_ITEM
- - DCO
-IPDU: 
- - CONFIGURATION_ITEM
- - IPDU
-smti: 
- - SUMMARY
- - Vcenter/CO
-datacenter: 
- - SUMMARY
- - Vcenter/CO
-vsphere: 
- - SUMMARY
- - Vcenter/CO
-esx:
- - CONFIGURATION_ITEM
- - Vcenter/CO
-prx:
- - CONFIGURATION_ITEM
- - Vcenter/CO
+ security:
+  - U_CATEGORY
+  - Security Alert
+ backup:
+  - ASSIGNMENT_GROUP
+  - Backup Alert
+ #storage: #row 21
+ televault:
+  - ASSIGNMENT_GROUP
+  - Televault Alert
+ storage:
+  - U_CATEGORY
+  - Storage Alert
+ trap rate:
+  - SUMMARY
+  - Trap Storm
+ BGP: 
+  - SUMMARY
+  - BGP
+ syslog: 
+  - SUMMARY
+  - Syslog Message
+ acih: 
+  - SUMMARY
+  - ACI
+ DCO: 
+  - CONFIGURATION_ITEM
+  - DCO
+ IPDU: 
+  - CONFIGURATION_ITEM
+  - IPDU
+ smti: 
+  - SUMMARY
+  - Vcenter/CO
+ datacenter: 
+  - SUMMARY
+  - Vcenter/CO
+ vsphere: 
+  - SUMMARY
+  - Vcenter/CO
+ esx:
+  - CONFIGURATION_ITEM
+  - Vcenter/CO
+ prx:
+  - CONFIGURATION_ITEM
+  - Vcenter/CO
+ ospf: 
+  - SUMMARY
+  - OSPF Alert
+  KEEP ALIVE: # FIGURE out UPPERCASE ONLY
+   - SUMMARY
+   - KEEP ALIVE
+  metric: 
+   - SUMMARY
+   - Sitescope Others
+  good: 
+   - SUMMARY
+   - Sitescope Others
+  monitor: 
+   - SUMMARY
+   - Sitescope Others
