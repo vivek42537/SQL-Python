@@ -68,110 +68,94 @@ def POD (row):
         if row['ASSIGNMENT_GROUP'] == key :
             return value
 
-
 def AlertCat (df):
-    for key,value in doc["ALERTcat"].items():
-        if key == 'KEEP ALIVE' or 'NEND' :
-            mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
-            df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+    defaultValue = None
+    mask = np.column_stack([df.NUMBER.str.contains('INC', na=False, case=False) for col in df])
+    df.loc[mask.any(axis=1), 'ALERT_CAT'] = defaultValue
 
-        if ((key == 'backup') & (np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
-            mask = np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df] and [df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
-            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
+    for key,value in doc["ALERTcat"].items():
+        print (key)
+        print (value)
+
+        if key == 'KEEP ALIVE' or key == 'NEND' or key == '0.00,NA' :
+            print('1')
+            mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+
+        if ((key == 'storage') & ((np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])))).any():
+                print('2')
+                mask = np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df] and [df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
+                df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
 
         if ((key == 'good' or key == 'metric' or key == 'monitor') & (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df]))).any():
-            mask = np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df] and [df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
-            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
+                print('3')
+                mask = np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df] and [df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
+                df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
+
         
         if ((key == 'r2c') & (np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df]))).any():
+            print('4')
             mask = np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df] and [df.CONFIGURATION_ITEM.str.contains('r2c', na=False, case=False) for col in df])
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('R2C SRM')
+
         
-        if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any():
+        else:
+            (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any()
+            print('5')
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
     
-    df.fillna('Other', inplace=True)
+    #df.fillna('Other', inplace=True)
+
 
 # def AlertCat (df):
+#     defaultValue = None
+#     mask = np.column_stack([df.NUMBER.str.contains('INC', na=False, case=False) for col in df])
+#     df.loc[mask.any(axis=1), 'ALERT_CAT'] = defaultValue
+
 #     for key,value in doc["ALERTcat"].items():
-#         if key == 'KEEP ALIVE' or 'NEND' :
+#         print (key)
+#         print (value)
+
+#         if key == 'KEEP ALIVE' or key == 'NEND' or key == '0.00,NA' :
+#             print('1')
 #             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
-#             df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+#             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
 
-#         mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
-#         df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+#         elif (key == 'storage') :
+#             if ((np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
+#                 print('2')
+#                 mask = np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df] and [df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
+#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
+#             else:
+#                 mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
 
-#     df.fillna('Other', inplace=True)
+#         elif (key == 'good' or key == 'metric' or key == 'monitor') :
+#             if (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df])).any():
+#                 print('3')
+#                 mask = np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df] and [df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
+#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
         
-
-
-       # df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+#             else:
+#                 mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+        
+#         elif (key == 'r2c') :
+#             if (np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df])).any():
+#                 print('4')
+#                 mask = np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df] and [df.CONFIGURATION_ITEM.str.contains('r2c', na=False, case=False) for col in df])
+#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('R2C SRM')
+#             else:
+#                 mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+        
+#         elif (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any():
+#             print('5')
+#             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+#             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
     
-    # for key,value in doc["Summary"].items():
-    #     mask = np.column_stack([df.SUMMARY.str.contains(key, na=False, case=False) for col in df]) 
-    #     if ((value == 'Sitescope Others') & (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df]))).any():
-    #         df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
-    #     else:
-    #         df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
-    #     #df.loc[mask.any(axis=1), 'ALERT_CAT'] = value
-    #     # df[df['ALERT_CAT'].isnull()].loc[mask.any(axis=1), 'ALERT_CAT'] = value
-    
-    # for key,value in doc["Category_u_category"].items():
-    #     mask = np.column_stack([df.U_CATEGORY.str.contains(key, na=False, case=False) for col in df]) 
-    #     df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
-    
-    # for key,value in doc["Assignment_group"].items():
-    #     mask = np.column_stack([df.ASSIGNMENT_GROUP.str.contains(key, na=False, case=False) for col in df]) 
-    #     df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
-    
-    # for key,value in doc["Company"].items():
-    #     mask = np.column_stack([df.COMPANY.str.contains(key, na=False, case=False) for col in df]) 
-    #     df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
-    
-    #df.fillna('Other', inplace=True)
-    
-
-# AlertCat (df)
-# print (df)
-# def AlertCat (row):
-    
-#     for key,value in doc["Configuration Item"].items():
-#         if (row['Configuration_item'] is not None) and (key.lower() in row['Configuration_item'].lower()) :
-#             return value
-#         else:
-    
-#             for key,value in doc["Summary"].items():
-#                 if (row['Summary'] is not None) and (key.lower() in row['Summary'].lower()) :
-#                     if (value.lower() == 'sitescope alert') and ('database' in row['Summary'].lower()) :
-#                         return 'Sitescope Database'
-#                     else:
-#                         return value
-                    
-#                 else:
-    
-#                     for key,value in doc["Category_u_category"].items():
-#                         if (row['Category_u_category'] is not None) and (key.lower() in row['Category_u_category'].lower()) :
-#                             if ('backup' in row['Summary'].lower()) :
-#                                 return 'Backup Alert' 
-#                             if ('backup' not in row['Summary'].lower()) :
-#                                 return value
-#                         else:
-
-#                             for key,value in doc["Assignment_group"].items():
-#                                 if (row['Assignment_group'] is not None) and (key.lower() in row['Assignment_group'].lower()) :
-#                                     return value
-#                                 else:
-
-#                                     for key,value in doc["Company"].items():
-#                                         if (row['Company'] is not None) and (key.lower() in row['Company'].lower()) :
-#                                             return value
-                                                 
-
-#                                         else:
-#                                             for key,value in doc["Num"].items():
-#                                                 if (row['Number'] is not None) and (key.lower() in row['Number'].lower()) :
-#                                                     return value
+#     df.fillna('Other', inplace=True)
 
 
 

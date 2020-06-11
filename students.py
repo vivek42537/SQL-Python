@@ -41,10 +41,12 @@ def AlertCat (df):
         if key == 'Vivek' :
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+            print (df)
 
         if ((key == 'Bill') & (np.column_stack([df.Country.str.contains('Canada', na=False, case=False) for col in df]))).any():
             mask = np.column_stack([df.Country.str.contains('Canada', na=False, case=False) for col in df])
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
+            print(df)
 
         if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any():
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 

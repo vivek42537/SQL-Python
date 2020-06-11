@@ -218,7 +218,7 @@ ALERTcat:
  0.00,NA: 
   - SUMMARY
   - Ciena Alert
-#  INC:
-#   - NUMBER
-#   - incorrect
+ INC:
+  - NUMBER
+  - Other
   
