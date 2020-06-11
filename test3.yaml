@@ -86,7 +86,6 @@ ALERTcat:
  backup:
   - ASSIGNMENT_GROUP
   - Backup Alert
- #storage: #row 21
  televault:
   - ASSIGNMENT_GROUP
   - Televault Alert
@@ -129,15 +128,97 @@ ALERTcat:
  ospf: 
   - SUMMARY
   - OSPF Alert
-  KEEP ALIVE: # FIGURE out UPPERCASE ONLY
-   - SUMMARY
-   - KEEP ALIVE
-  metric: 
-   - SUMMARY
-   - Sitescope Others
-  good: 
-   - SUMMARY
-   - Sitescope Others
-  monitor: 
-   - SUMMARY
-   - Sitescope Others
+ KEEP ALIVE: # FIGURE out UPPERCASE ONLY
+  - SUMMARY
+  - KEEP ALIVE
+ metric: 
+  - SUMMARY
+  - Sitescope Others
+ good: 
+  - SUMMARY
+  - Sitescope Others
+ monitor: 
+  - SUMMARY
+  - Sitescope Others
+ r2c:
+  - CONFIGURATION_ITEM
+  - R2C SR
+ transport:
+  - ASSIGNMENT_GROUP
+  - Ciena Alert
+ ucs:
+  - SUMMARY
+  - UCS Alert
+ ucs:
+  - CONFIGURATION_ITEM
+  - UCS Alert
+ cloud platform:
+  - COMPANY
+  - UCS Alert
+ Remote Site:
+  - SUMMARY
+  - Remote Site Unreachable
+ lb-:
+  - CONFIGURATION_ITEM
+  - LB Alert
+ service:
+  - SUMMARY  
+  - Service Down
+ process:
+  - SUMMARY
+  - Process Down
+ nsx:
+  - CONFIGURATION_ITEM
+  - NSX Alert
+ MAX0902:
+  - SUMMARY
+  - AS/400
+ Chassis down:
+  - SUMMARY
+  - Chassis down
+ Event Storm:
+  - SUMMARY
+  - Event Storm
+ FRU:
+  - SUMMARY
+  - FRU Alert
+ Forwarder:
+  - SUMMARY
+  - Forwarder Alert
+ Symmetrix:
+  - SUMMARY
+  - Symmetrix Alert
+ TVault:
+  - SUMMARY
+  - Tvault Backup Job Alert
+ QA Probe:
+  - SUMMARY
+  - ICMP Jitter
+ ICMP Jitter:
+  - SUMMARY
+  - ICMP Jitter
+ Shared POD – Storage:
+  - ASSIGNMENT_GROUP
+  - Storage Alert
+ GCSM-RS-CR-OPS-SUPPORT:
+  - ASSIGNMENT_GROUP
+  - R2C SR
+ Multiple events received for tenant:
+  - SUMMARY
+  - ACI 
+ NSX Edge:
+  - SUMMARY
+  - NSX Alert
+ backup:
+  - SUMMARY
+  - Backup Alert
+ NEND0:  #CHECK ONLY CAPS NEND
+  - SUMMARY
+  - Ciena Alert
+ 0.00,NA: 
+  - SUMMARY
+  - Ciena Alert
+#  INC:
+#   - NUMBER
+#   - incorrect
+  

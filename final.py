@@ -62,7 +62,7 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 
-
+x = doc
 def POD (row):
     for key,value in doc["POD"].items():
         if row['ASSIGNMENT_GROUP'] == key :
@@ -71,8 +71,42 @@ def POD (row):
 
 def AlertCat (df):
     for key,value in doc["ALERTcat"].items():
-        mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
-        df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+        if key == 'KEEP ALIVE' or 'NEND' :
+            mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+
+        if ((key == 'backup') & (np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
+            mask = np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df] and [df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
+
+        if ((key == 'good' or key == 'metric' or key == 'monitor') & (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df]))).any():
+            mask = np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df] and [df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
+        
+        if ((key == 'r2c') & (np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df]))).any():
+            mask = np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df] and [df.CONFIGURATION_ITEM.str.contains('r2c', na=False, case=False) for col in df])
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('R2C SRM')
+        
+        if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any():
+            mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+    
+    df.fillna('Other', inplace=True)
+
+# def AlertCat (df):
+#     for key,value in doc["ALERTcat"].items():
+#         if key == 'KEEP ALIVE' or 'NEND' :
+#             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
+#             df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+
+#         mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+#         df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+
+#     df.fillna('Other', inplace=True)
+        
+
+
+       # df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
     
     # for key,value in doc["Summary"].items():
     #     mask = np.column_stack([df.SUMMARY.str.contains(key, na=False, case=False) for col in df]) 
@@ -95,7 +129,7 @@ def AlertCat (df):
     #     mask = np.column_stack([df.COMPANY.str.contains(key, na=False, case=False) for col in df]) 
     #     df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)
     
-    df.fillna('Other', inplace=True)
+    #df.fillna('Other', inplace=True)
     
 
 # AlertCat (df)
@@ -205,7 +239,7 @@ while (operation != 'done'):
         writer.book = book
         writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
         
-        df.to_excel(writer, sheet_name= sheet)
+        df.to_excel(writer, sheet_name= sheet, index=False)
         writer.save()   
 
     

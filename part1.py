@@ -127,7 +127,7 @@ def AlertCat (df):
     
     for key,value in doc["Summary"].items():
         mask = np.column_stack([df.Summary.str.contains(key, na=False, case=False) for col in df]) 
-        if ((value == 'Sitescope Others') & (np.column_stack([df.Summary.str.contains('database', na=False, case=False) for col in df]))).any():
+        if ((value[1] == 'Sitescope Others') & (np.column_stack([df.Summary.str.contains('database', na=False, case=False) for col in df]))).any():
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
         else:
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value)

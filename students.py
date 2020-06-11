@@ -5,6 +5,11 @@ from openpyxl import load_workbook
 import csv
 from datetime import datetime
 import numpy as np
+import yaml
+
+
+with open('test1.yaml', 'r') as yam:
+    doc = yaml.safe_load(yam)
 
 
 from sqlalchemy import create_engine
@@ -30,21 +35,40 @@ df.columns = df.columns.str.strip()
 #     rowIndex = df.index[cat]
 #     print (rowIndex)
     #df.loc[rowIndex, 'Newbie'] = 6, 
+x = doc
 def AlertCat (df):
+    for key,value in doc["Names"].items():
+        if key == 'Vivek' :
+            mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+
+        if ((key == 'Bill') & (np.column_stack([df.Country.str.contains('Canada', na=False, case=False) for col in df]))).any():
+            mask = np.column_stack([df.Country.str.contains('Canada', na=False, case=False) for col in df])
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
+
+        if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any():
+            mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+            # if ((key == 'metric' or 'good' or 'monitor') & (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df]))).any():
+            #     df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
+            # else:
+                #df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+
+    df.fillna('Other', inplace=True)
+    print (df)
 
     #cat = df.isin({'Age': [33]})
     #df.loc[df.index[cat], 'Newbie'] = 'Nine'
     #print(df.Name)
-    mask = np.column_stack([df.Name.str.contains("Jon", na=False, case=False) for col in df])
-    #print(df.loc[mask.any(axis=1)])
-    df.loc[(mask.any(axis=1)), 'Newbie'] = 6
-    mask = np.column_stack([df.Name.str.contains("Jon", na=False, case=False) for col in df])
-    df.loc[mask.any(axis=1), 'Newbie'] = df.loc[mask.any(axis=1), 'Newbie'].fillna('Cool')
-    #df.Newbie = df.Newbie.fillna(98)
-    #a = pd.isnull(df.Newbies)
-    df.fillna(90, inplace=True)
-    #print(df[df['Newbie'].isnull()])
-    print (df)
+    # mask = np.column_stack([df.Name.str.contains("Vivek|Bill", na=False, case=False) for col in df])
+    # #print(df.loc[mask.any(axis=1)])
+    # df.loc[(mask.any(axis=1)), 'Newbie'] = 6
+    # if (np.column_stack([df.Name.str.contains("Jon", na=False, case=False) for col in df])).any() :
+    #     mask = (np.column_stack([df.Name.str.contains('Jon', na=False, case=False) for col in df]))
+    #     df.loc[mask.any(axis=1), 'Newbie'] = df.loc[mask.any(axis=1), 'Newbie'].fillna('Cool')
+    # mask = (np.column_stack([df.Name.str.contains('Maria', na=False, case=False) for col in df]))
+    # df.loc[mask.any(axis=1), 'Newbie'] = df.loc[mask.any(axis=1), 'Newbie'].fillna('Gay')
+    # print (df)
     # print (df.Newbie)
 
     # a = pd.isnull(df.Newbie)
@@ -52,6 +76,7 @@ def AlertCat (df):
 
 
 AlertCat (df)
+
 
 #print (df)
 # mydb = mysql.connector.connect(
