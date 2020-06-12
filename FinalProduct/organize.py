@@ -73,7 +73,7 @@ def AlertCat (df):
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
 
-        if ((key == 'storage') & (np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
+        if ((key == 'storag') & (np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
             cond = np.logical_and([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df],[df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
             mask = np.column_stack(cond)
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')

@@ -25,15 +25,15 @@ fileHandler.setFormatter(formatter)
 logger.addHandler(fileHandler)
 
 fileName = input("File name: ")
-df = pd.read_csv (fileName)
-# df = df.where((pd.notnull(df)), None)
-# df['CREATED'] = df['CREATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
-# df['UPDATED'] = df['UPDATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
-# df['RESOLVED_AT'] = df['RESOLVED_AT'].dt.strftime('%Y-%m-%d %H:%M:%S')
-# df['CREATED_DATE'] = df['CREATED_DATE'].dt.strftime('%Y-%m-%d')
-# df['START_MAINTENANCE'] = df['START_MAINTENANCE'].dt.strftime('%Y-%m-%d %H:%M:%S')
-# df['END_MAINTENANCE'] = df['END_MAINTENANCE'].dt.strftime('%Y-%m-%d %H:%M:%S')
-# df['REASSIGNMENT_COUNT'] = df['REASSIGNMENT_COUNT'].apply(str)
+df = pd.read_excel (fileName)
+df = df.where((pd.notnull(df)), None)
+df['CREATED'] = df['CREATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
+df['UPDATED'] = df['UPDATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
+df['RESOLVED_AT'] = df['RESOLVED_AT'].dt.strftime('%Y-%m-%d %H:%M:%S')
+df['CREATED_DATE'] = df['CREATED_DATE'].dt.strftime('%Y-%m-%d')
+df['START_MAINTENANCE'] = df['START_MAINTENANCE'].dt.strftime('%Y-%m-%d %H:%M:%S')
+df['END_MAINTENANCE'] = df['END_MAINTENANCE'].dt.strftime('%Y-%m-%d %H:%M:%S')
+df['REASSIGNMENT_COUNT'] = df['REASSIGNMENT_COUNT'].apply(str)
 
 
 logger.info(df)
@@ -63,27 +63,37 @@ def AlertCat (df):
     df.loc[mask.any(axis=1), 'ALERT_CAT'] = defaultValue
 
     for key,value in doc["ALERTcat"].items():
-
+        print (key)
         if key == 'KEEP ALIVE' or key == 'NEND' or key == '0.00,NA' :
+            print ('1')
+            print (key)
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
 
-        if ((key == 'storage') & (np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
+        if ((key == 'storag') & (np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
+            print ('2')
+            print (key)
             cond = np.logical_and([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df],[df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
             mask = np.column_stack(cond)
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
 
         if ((key == 'good' or key == 'metric' or key == 'monitor') & (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df]))).any():
+            print ('3')
+            print (key)
             cond = np.logical_and([df.SUMMARY.str.contains('database', na=False, case=False) for col in df],[df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
             mask = np.column_stack(cond)
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
 
         if ((key == 'r2c') & (np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df]))).any():
+            print ('4')
+            print (key)
             cond = np.logical_and([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df],[df.CONFIGURATION_ITEM.str.contains('r2c', na=False, case=False) for col in df])
             mask = np.column_stack(cond)
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('R2C SRM')
         
         if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any() :
+            print ('5')
+            print (key)
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
         # if ((np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():

@@ -86,6 +86,9 @@ ALERTcat:
  backup:
   - ASSIGNMENT_GROUP
   - Backup Alert
+ storag:
+  - U_CATEGORY
+  - Storage Alert
  televault:
   - ASSIGNMENT_GROUP
   - Televault Alert
@@ -209,7 +212,7 @@ ALERTcat:
  NSX Edge:
   - SUMMARY
   - NSX Alert
- backup:
+ backu:
   - SUMMARY
   - Backup Alert
  NEND0:  #CHECK ONLY CAPS NEND
