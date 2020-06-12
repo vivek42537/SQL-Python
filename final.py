@@ -17,12 +17,6 @@ userInfo = doc["DatabaseInfo"]["user"]
 passwdInfo = doc["DatabaseInfo"]["passwd"]
 databaseInfo = doc["DatabaseInfo"]["database"]
 
-# import sqlalchemy
-# from sqlalchemy import create_engine
-# engine = create_engine('mysql+pymysql://root:password@localhost:3306/test2')
-#fileName = input("File Name: ")
-#df = pd.read_excel (r'Book3.xlsx')
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(levelname)s:%(name)s\n:%(message)s')
@@ -30,22 +24,17 @@ fileHandler = logging.FileHandler('two.log')
 fileHandler.setFormatter(formatter)
 logger.addHandler(fileHandler)
 
-# logging.basicConfig(filename = 'two.log', level = logging.DEBUG, format = '%(levelname)s:%(name)s\n:%(message)s')
-
-
-
 fileName = input("File name: ")
-df = pd.read_excel (fileName)
-df = df.where((pd.notnull(df)), None)
-df['CREATED'] = df['CREATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
-df['UPDATED'] = df['UPDATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
-df['RESOLVED_AT'] = df['RESOLVED_AT'].dt.strftime('%Y-%m-%d %H:%M:%S')
-df['REASSIGNMENT_COUNT'] = df['REASSIGNMENT_COUNT'].apply(str)
+df = pd.read_csv (fileName)
+# df = df.where((pd.notnull(df)), None)
+# df['CREATED'] = df['CREATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
+# df['UPDATED'] = df['UPDATED'].dt.strftime('%Y-%m-%d %H:%M:%S')
+# df['RESOLVED_AT'] = df['RESOLVED_AT'].dt.strftime('%Y-%m-%d %H:%M:%S')
+# df['CREATED_DATE'] = df['CREATED_DATE'].dt.strftime('%Y-%m-%d')
+# df['START_MAINTENANCE'] = df['START_MAINTENANCE'].dt.strftime('%Y-%m-%d %H:%M:%S')
+# df['END_MAINTENANCE'] = df['END_MAINTENANCE'].dt.strftime('%Y-%m-%d %H:%M:%S')
+# df['REASSIGNMENT_COUNT'] = df['REASSIGNMENT_COUNT'].apply(str)
 
-# df['Resolve_time'] = df['Resolve_time'].apply(str)
-#print (df.dtypes)
-# df['Book3'] = pd.to_datetime(df['Created'],unit='ms')
-# df.to_excel('new_Book3.xlsx', index=False)
 
 logger.info(df)
 
@@ -74,130 +63,102 @@ def AlertCat (df):
     df.loc[mask.any(axis=1), 'ALERT_CAT'] = defaultValue
 
     for key,value in doc["ALERTcat"].items():
-        print (key)
-        print (value)
 
         if key == 'KEEP ALIVE' or key == 'NEND' or key == '0.00,NA' :
-            print('1')
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
 
-        if ((key == 'storage') & ((np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])))).any():
-                print('2')
-                mask = np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df] and [df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
-                df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
+        if ((key == 'storage') & (np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
+            cond = np.logical_and([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df],[df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
+            mask = np.column_stack(cond)
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
 
         if ((key == 'good' or key == 'metric' or key == 'monitor') & (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df]))).any():
-                print('3')
-                mask = np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df] and [df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
-                df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
+            cond = np.logical_and([df.SUMMARY.str.contains('database', na=False, case=False) for col in df],[df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
+            mask = np.column_stack(cond)
+            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
 
-        
         if ((key == 'r2c') & (np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df]))).any():
-            print('4')
-            mask = np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df] and [df.CONFIGURATION_ITEM.str.contains('r2c', na=False, case=False) for col in df])
+            cond = np.logical_and([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df],[df.CONFIGURATION_ITEM.str.contains('r2c', na=False, case=False) for col in df])
+            mask = np.column_stack(cond)
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('R2C SRM')
-
         
-        else:
-            (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any()
-            print('5')
+        if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any() :
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+        # if ((np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
+        #     print('2')
+        #     print(key)
+        #     cond = np.logical_and([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df],[df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])
+        #     mask = np.column_stack(cond)
+        #     df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
     
-    #df.fillna('Other', inplace=True)
-
-
-# def AlertCat (df):
-#     defaultValue = None
-#     mask = np.column_stack([df.NUMBER.str.contains('INC', na=False, case=False) for col in df])
-#     df.loc[mask.any(axis=1), 'ALERT_CAT'] = defaultValue
-
-#     for key,value in doc["ALERTcat"].items():
-#         print (key)
-#         print (value)
-
-#         if key == 'KEEP ALIVE' or key == 'NEND' or key == '0.00,NA' :
-#             print('1')
-#             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
-#             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
-
-#         elif (key == 'storage') :
-#             if ((np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df])) & (np.column_stack([df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df]))).any():
-#                 print('2')
-#                 mask = np.column_stack([df.SUMMARY.str.contains('backup', na=False, case=False) for col in df] and [df.U_CATEGORY.str.contains('storage', na=False, case=False) for col in df])
-#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
-#             else:
-#                 mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
-#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
-
-#         elif (key == 'good' or key == 'metric' or key == 'monitor') :
-#             if (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df])).any():
-#                 print('3')
-#                 mask = np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df] and [df.SUMMARY.str.contains('metric|good|monitor', na=False, case=False) for col in df])
-#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
-        
-#             else:
-#                 mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
-#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
-        
-#         elif (key == 'r2c') :
-#             if (np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df])).any():
-#                 print('4')
-#                 mask = np.column_stack([df.CONFIGURATION_ITEM.str.contains('srm', na=False, case=False) for col in df] and [df.CONFIGURATION_ITEM.str.contains('r2c', na=False, case=False) for col in df])
-#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('R2C SRM')
-#             else:
-#                 mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
-#                 df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
-        
-#         elif (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any():
-#             print('5')
-#             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
-#             df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
-    
-#     df.fillna('Other', inplace=True)
-
-
+  
 
 operation = ""
 while (operation != 'done'):
     operation = input("Press 1, 2, 3, or 4 for to Create table in SQL, Insert data into SQL, ")
 
     if (operation == '1'): #CREATE TABLE
-        mycursor.execute('CREATE TABLE RawPeople (Number nvarchar(50), Summary LONGTEXT, `Configuration_item` LONGTEXT, Created nvarchar(50), Company LONGTEXT, `Assignment_group` nvarchar(50), `Reassignment_count` nvarchar(50), Priority nvarchar(50), Status nvarchar(50), State nvarchar(50), `Assigned_to` nvarchar(50), Caller nvarchar(50), Updated nvarchar(50), Category nvarchar(50), `Category_u_category` nvarchar(50), `Resolve_time` nvarchar(50), `Resolved_By` nvarchar(50), `Resolved_at` nvarchar(50), `Resolved_by2` nvarchar(50), `Created_by` nvarchar(50), `Created_date` nvarchar(50), Location nvarchar(50))')
+        mycursor.execute('CREATE TABLE RawPeople (NUMBER nvarchar(50), SUMMARY LONGTEXT, CONFIGURATION_ITEM LONGTEXT, CREATED nvarchar(50), COMPANY LONGTEXT, ASSIGNMENT_GROUP nvarchar(50), REASSIGNMENT_COUNT nvarchar(50), PRIORITY nvarchar(50), status nvarchar(50), STATE nvarchar(50), ITASK nvarchar(50), ACTIVE nvarchar(50), ACTIVITY_DUE nvarchar(50), DUE_DATE nvarchar(50), ADDITIONAL_ASSIGNEE_LIST LONGTEXT, APPROVAL nvarchar(50), TICKET_DURATION nvarchar(50), APPROVAL_HISTORY nvarchar(50), APPROVAL_SET nvarchar(50), ASSIGNED_TO nvarchar(50), BUSINESS_DURATION nvarchar(50), CALLER nvarchar(50), UPDATED nvarchar(50), CATEGORY nvarchar(50), U_CATEGORY nvarchar(50), RESOLVE_TIME nvarchar(50), RESOLVED_BY nvarchar(50), RESOLVED_AT nvarchar(50), RESOLVED_BY2 nvarchar(50), CREATED_BY nvarchar(50), CREATED_DATE nvarchar(50), LOCATION nvarchar(50), HAS_ATTACHMENTS nvarchar(50), HIDE_FROM_LIST nvarchar(50), OPENED_BY nvarchar(50), RECORD_SOURCE nvarchar(50), ROOT_CAUSE_L1 nvarchar(50), ROOT_CAUSE_L2 nvarchar(50), ROOT_CAUSE_L3 nvarchar(50), PARENT nvarchar(50), PARENT_INCIDENT nvarchar(50), PARENT_INCIDENT3 nvarchar(50), CHANGE_REQUEST nvarchar(50), CREATE_MAINTENANCE_WINDOW nvarchar(50), MX_WINDOW_STATUS nvarchar(50), START_MAINTENANCE nvarchar(50), END_MAINTENANCE nvarchar(50))')
         mydb.commit()
     
     elif (operation == '2'): #INSERT DATA INTO SQL
         for row in df.itertuples():
-            mycursor.execute("INSERT INTO RawPeople (Number, Summary, Configuration_item, Created, Company, Assignment_group, Reassignment_count, Priority, Status, State, Assigned_to, Caller, Updated, Category, Category_u_category, Resolve_time, Resolved_By, Resolved_at, Resolved_by2, Created_by, Created_date, Location) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-            (row.Number, 
-            row.Summary, 
-            row.Configuration_item,
-            row.Created, 
-            row.Company, 
-            row.Assignment_group, 
-            row.Reassignment_count, 
-            row.Priority, 
-            row.Status, 
-            row.State, 
-            row.Assigned_to, 
-            row.Caller, 
-            row.Updated, 
-            row.Category, 
-            row.Category_u_category,
-            row.Resolve_time, 
-            row.Resolved_By, 
-            row.Resolved_at, 
-            row.Resolved_by2, 
-            row.Created_by, 
-            row.Created_date, 
-            row.Location))
+            mycursor.execute("INSERT INTO RawPeople (NUMBER, SUMMARY, CONFIGURATION_ITEM, CREATED, COMPANY, ASSIGNMENT_GROUP, REASSIGNMENT_COUNT, PRIORITY, status, STATE, ITASK, ACTIVE, ACTIVITY_DUE, DUE_DATE, ADDITIONAL_ASSIGNEE_LIST, APPROVAL, TICKET_DURATION, APPROVAL_HISTORY, APPROVAL_SET, ASSIGNED_TO, BUSINESS_DURATION, CALLER, UPDATED, CATEGORY, U_CATEGORY, RESOLVE_TIME, RESOLVED_BY, RESOLVED_AT, RESOLVED_BY2, CREATED_BY, CREATED_DATE, LOCATION, HAS_ATTACHMENTS, HIDE_FROM_LIST, OPENED_BY, RECORD_SOURCE, ROOT_CAUSE_L1, ROOT_CAUSE_L2, ROOT_CAUSE_L3, PARENT, PARENT_INCIDENT, PARENT_INCIDENT3, CHANGE_REQUEST, CREATE_MAINTENANCE_WINDOW, MX_WINDOW_STATUS, START_MAINTENANCE, END_MAINTENANCE) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+            (row.NUMBER, 
+            row.SUMMARY, 
+            row.CONFIGURATION_ITEM,
+            row.CREATED, 
+            row.COMPANY, 
+            row.ASSIGNMENT_GROUP, 
+            row.REASSIGNMENT_COUNT, 
+            row.PRIORITY, 
+            row.status, 
+            row.STATE, 
+            row.ITASK, 
+            row.ACTIVE, 
+            row.ACTIVITY_DUE, 
+            row.DUE_DATE, 
+            row.ADDITIONAL_ASSIGNEE_LIST,
+            row.APPROVAL, 
+            row.TICKET_DURATION, 
+            row.APPROVAL_HISTORY, 
+            row.APPROVAL_SET, 
+            row.ASSIGNED_TO, 
+            row.BUSINESS_DURATION, 
+            row.CALLER,
+            row.UPDATED, 
+            row.CATEGORY,
+            row.U_CATEGORY, 
+            row.RESOLVE_TIME, 
+            row.RESOLVED_BY, 
+            row.RESOLVED_AT, 
+            row.RESOLVED_BY2, 
+            row.CREATED_BY, 
+            row.CREATED_DATE, 
+            row.LOCATION, 
+            row.HAS_ATTACHMENTS, 
+            row.HIDE_FROM_LIST, 
+            row.OPENED_BY, 
+            row.RECORD_SOURCE,
+            row.ROOT_CAUSE_L1, 
+            row.ROOT_CAUSE_L2, 
+            row.ROOT_CAUSE_L3, 
+            row.PARENT, 
+            row.PARENT_INCIDENT, 
+            row.PARENT_INCIDENT3,
+            row.CHANGE_REQUEST, 
+            row.CREATE_MAINTENANCE_WINDOW, 
+            row.MX_WINDOW_STATUS, 
+            row.START_MAINTENANCE,
+            row.END_MAINTENANCE))
         mydb.commit()
     
     elif (operation == '3'): #TAKE SQL DATA AND PUT INTO PANDAS
         mycursor.execute("SELECT * FROM RawPeople")
         myresult = mycursor.fetchall()
-        df = DataFrame(myresult, columns=['Number', 'Summary', 'Configuration_item', 'Created', 'Company', 'Assignment_group', 'Reassignment_count', 'Priority', 'Status', 'State', 'Assigned_to', 'Caller', 'Updated', 'Category', 'Category_u_category', 'Resolve_time', 'Resolved_By', 'Resolved_at', 'Resolved_by2', 'Created_by', 'Created_date', 'Location'])
+        df = DataFrame(myresult, columns=['NUMBER', 'SUMMARY', 'CONFIGURATION_ITEM', 'CREATED', 'COMPANY', 'ASSIGNMENT_GROUP', 'REASSIGNMENT_COUNT', 'PRIORITY', 'status', 'STATE', 'ITASK', 'ACTIVE', 'ACTIVITY_DUE', 'DUE_DATE', 'ADDITIONAL_ASSIGNEE_LIST', 'APPROVAL', 'TICKET_DURATION', 'APPROVAL_HISTORY', 'APPROVAL_SET', 'ASSIGNED_TO', 'BUSINESS_DURATION', 'CALLER', 'UPDATED', 'CATEGORY', 'U_CATEGORY', 'RESOLVE_TIME', 'RESOLVED_BY', 'RESOLVED_AT', 'RESOLVED_BY2', 'CREATED_BY', 'CREATED_DATE', 'LOCATION', 'HAS_ATTACHMENTS', 'HIDE_FROM_LIST', 'OPENED_BY', 'RECORD_SOURCE', 'ROOT_CAUSE_L1', 'ROOT_CAUSE_L2', 'ROOT_CAUSE_L3', 'PARENT', 'PARENT_INCIDENT', 'PARENT_INCIDENT3', 'CHANGE_REQUEST', 'CREATE_MAINTENANCE_WINDOW', 'MX_WINDOW_STATUS', 'START_MAINTENANCE', 'END_MAINTENANCE'])
         logger.info('This is the data from SQL')
         logger.info(df)
     

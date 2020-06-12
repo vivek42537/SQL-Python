@@ -363,12 +363,12 @@ while (operation != 'done'):
     operation = input("Press 1, 2, 3, or 4 for to Create table in SQL, Insert data into SQL, ")
 
     if (operation == '1'): #CREATE TABLE
-        mycursor.execute('CREATE TABLE RawPeople (Number nvarchar(50), Summary LONGTEXT, `Configuration_item` LONGTEXT, Created nvarchar(50), Company LONGTEXT, `Assignment_group` nvarchar(50), `Reassignment_count` nvarchar(50), Priority nvarchar(50), Status nvarchar(50), State nvarchar(50), `Assigned_to` nvarchar(50), Caller nvarchar(50), Updated nvarchar(50), Category nvarchar(50), `Category_u_category` nvarchar(50), `Resolve_time` nvarchar(50), `Resolved_By` nvarchar(50), `Resolved_at` nvarchar(50), `Resolved_by2` nvarchar(50), `Created_by` nvarchar(50), `Created_date` nvarchar(50), Location nvarchar(50))')
+        mycursor.execute('CREATE TABLE peepRaw (Number nvarchar(50), Summary LONGTEXT, `Configuration_item` LONGTEXT, Created nvarchar(50), Company LONGTEXT, `Assignment_group` nvarchar(50), `Reassignment_count` nvarchar(50), Priority nvarchar(50), Status nvarchar(50), State nvarchar(50), `Assigned_to` nvarchar(50), Caller nvarchar(50), Updated nvarchar(50), Category nvarchar(50), `Category_u_category` nvarchar(50), `Resolve_time` nvarchar(50), `Resolved_By` nvarchar(50), `Resolved_at` nvarchar(50), `Resolved_by2` nvarchar(50), `Created_by` nvarchar(50), `Created_date` nvarchar(50), Location nvarchar(50))')
         mydb.commit()
     
     elif (operation == '2'): #INSERT DATA INTO SQL
         for row in df.itertuples():
-            mycursor.execute("INSERT INTO RawPeople (Number, Summary, Configuration_item, Created, Company, Assignment_group, Reassignment_count, Priority, Status, State, Assigned_to, Caller, Updated, Category, Category_u_category, Resolve_time, Resolved_By, Resolved_at, Resolved_by2, Created_by, Created_date, Location) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+            mycursor.execute("INSERT INTO peepRaw (Number, Summary, Configuration_item, Created, Company, Assignment_group, Reassignment_count, Priority, Status, State, Assigned_to, Caller, Updated, Category, Category_u_category, Resolve_time, Resolved_By, Resolved_at, Resolved_by2, Created_by, Created_date, Location) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
             (row.Number, 
             row.Summary, 
             row.Configuration_item,
@@ -394,7 +394,7 @@ while (operation != 'done'):
         mydb.commit()
     
     elif (operation == '3'): #TAKE SQL DATA AND PUT INTO PANDAS
-        mycursor.execute("SELECT * FROM RawPeople")
+        mycursor.execute("SELECT * FROM peepRaw")
         myresult = mycursor.fetchall()
         df = DataFrame(myresult, columns=['Number', 'Summary', 'Configuration_item', 'Created', 'Company', 'Assignment_group', 'Reassignment_count', 'Priority', 'Status', 'State', 'Assigned_to', 'Caller', 'Updated', 'Category', 'Category_u_category', 'Resolve_time', 'Resolved_By', 'Resolved_at', 'Resolved_by2', 'Created_by', 'Created_date', 'Location'])
         logger.info('This is the data from SQL')

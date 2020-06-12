@@ -39,16 +39,29 @@ x = doc
 def AlertCat (df):
     for key,value in doc["Names"].items():
         if key == 'Vivek' :
+            print('1')
+            print(key)
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=True) for col in df])
             df.loc[mask.any(axis=1), 'ALERT_CAT'] = value[1]
-            print (df)
+         
 
-        if ((key == 'Bill') & (np.column_stack([df.Country.str.contains('Canada', na=False, case=False) for col in df]))).any():
-            mask = np.column_stack([df.Country.str.contains('Canada', na=False, case=False) for col in df])
-            df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
-            print(df)
+        if (key == 'Jon') :
+            if (np.column_stack([df.Country.str.contains('Japan', na=False, case=False) for col in df])).any():
+                print('2')
+                print(key)
+                x = np.logical_and([df.Country.str.contains('Wakanda ', na=False, case=False) for col in df],[df.Name.str.contains('Jon', na=False, case=False) for col in df])
+                mask = np.column_stack(x)
+                df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Backup Alert')
 
-        if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any():
+            else:
+                mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
+                df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna(value[1])
+            
+
+        
+        if (np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df])).any() :
+            print('3')
+            print(key)
             mask = np.column_stack([df[value[0]].str.contains(key, na=False, case=False) for col in df]) 
             # if ((key == 'metric' or 'good' or 'monitor') & (np.column_stack([df.SUMMARY.str.contains('database', na=False, case=False) for col in df]))).any():
             #     df.loc[mask.any(axis=1), 'ALERT_CAT'] = df.loc[mask.any(axis=1), 'ALERT_CAT'].fillna('Sitescope Database')
